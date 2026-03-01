@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Train Our AI — Train BJJ</title>
+    <meta name="description" content="Help improve the AI features in Train BJJ. Send feedback on the AI Coach, Post-Session Insights, and Notebook Scanner.">
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <link rel="apple-touch-icon" href="images/icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="images/icon.png" alt="Train BJJ icon">
+                Train BJJ
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#contact">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Help Train Our AI</h1>
+            <p class="subtitle">
+                Train BJJ includes three AI-powered features — the AI Training Coach, Post-Session Insights, and Notebook Scanner.
+                Your feedback directly improves the quality of coaching advice for everyone. Every correction you send makes the AI smarter.
+            </p>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- How It Works -->
+        <div class="content-section">
+            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 32px;">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Use the AI Features</h3>
+                    <p>Chat with the AI Coach, generate a Post-Session Insight after training, or scan your notebook to log a session.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Notice Something Off</h3>
+                    <p>Maybe the AI praised a submission you actually got caught by, suggested sweeps from top position, or missed a technique in your notes.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Send Us Feedback</h3>
+                    <p>Use the template below to tell us what happened and what the correct response should be. We use your feedback to improve the prompts.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What We're Looking For -->
+        <div class="content-section">
+            <h2 style="text-align: center; font-size: 1.5rem;">What We're Looking For</h2>
+            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 24px;">These are the most common types of AI errors we want to fix.</p>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">&#8693;</div>
+                    <div>
+                        <h3>Outcome Confusion</h3>
+                        <p>The AI treated a negative outcome as positive (or vice versa). For example, praising you for a submission you actually got caught by.</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">&#128683;</div>
+                    <div>
+                        <h3>Position Logic Errors</h3>
+                        <p>The AI suggested something impossible for the position — like "work on sweeps from top" or "pass guard from bottom."</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">&#129504;</div>
+                    <div>
+                        <h3>Missing BJJ Knowledge</h3>
+                        <p>The AI doesn't know enough about a specific technique, position, or concept to give useful advice.</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">&#128269;</div>
+                    <div>
+                        <h3>Wrong Technique Suggestions</h3>
+                        <p>The AI suggested creating a technique that already exists in your library, or categorized a technique incorrectly.</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">&#128196;</div>
+                    <div>
+                        <h3>Format or Display Issues</h3>
+                        <p>The AI returned a malformed response, garbled text, or action buttons that didn't work correctly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Template -->
+        <div class="content-section">
+            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 8px;">Feedback Template</h2>
+            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 32px;">Copy this template, fill it out, and email it to us. Include as much or as little detail as you'd like.</p>
+
+            <div class="template-box">
+                <button class="copy-btn" onclick="copyTemplate()">Copy Template</button>
+                <pre id="template-text">Subject: AI Feedback — [AI Coach / Session Insight / Notebook Scanner]
+
+WHICH AI FEATURE?
+(check one)
+- AI Coach (chat)
+- Post-Session Insight (session analysis)
+- Notebook Scanner (OCR parsing)
+
+WHAT DID THE AI SAY?
+(paste or describe the AI's actual response)
+
+
+WHAT SHOULD IT HAVE SAID?
+(describe what a knowledgeable BJJ coach would say instead)
+
+
+ISSUE CATEGORY
+(check the type that best describes the problem)
+- Outcome confusion — treated a negative as positive (or vice versa)
+- Position logic error — impossible suggestion (e.g. sweeps from top)
+- Missing BJJ knowledge
+- Wrong technique suggestion
+- Format / display issue
+- Other: ___
+
+SESSION DETAILS (optional)
+- Session type (class, open mat, etc.):
+- Gi or No-Gi:
+- Techniques tagged:
+- Notes content:
+
+ANYTHING ELSE?
+(any other context that might help us fix this)</pre>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <p>Ready to help? Send your feedback and we'll use it to make the AI better for everyone.</p>
+            <a href="mailto:aifeedback@trainbjjapp.com?subject=AI%20Feedback%20%E2%80%94%20" class="send-feedback-btn">
+                Send Feedback to aifeedback@trainbjjapp.com
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Super Core Solutions LLC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@trainbjjapp.com">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function copyTemplate() {
+        const text = document.getElementById('template-text').textContent;
+        navigator.clipboard.writeText(text).then(function() {
+            const btn = document.querySelector('.copy-btn');
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(function() {
+                btn.textContent = 'Copy Template';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+    </script>
+
+</body>
+</html>

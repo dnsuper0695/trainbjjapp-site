@@ -417,6 +417,183 @@ img {
     color: var(--color-text);
 }
 
+/* === Live Session Section === */
+
+.live-section {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle red/warm glow behind the section */
+.live-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(239, 68, 68, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(220, 38, 38, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.live-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Divider line above Live section */
+.live-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #dc2626, transparent);
+    z-index: 1;
+}
+
+/* Section header */
+.live-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.live-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(239, 68, 68, 0.2));
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #fca5a5;
+    margin-bottom: 20px;
+}
+
+.live-header .section-title {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.live-header .section-subtitle {
+    max-width: 600px;
+}
+
+/* Individual Live feature blocks */
+.live-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.live-feature:last-child {
+    margin-bottom: 0;
+}
+
+.live-feature-screenshots {
+    max-width: 280px;
+    justify-self: center;
+}
+
+.live-feature-reverse {
+    direction: rtl;
+}
+
+.live-feature-reverse > * {
+    direction: ltr;
+}
+
+/* Content side */
+.live-feature-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #dc2626;
+    margin-bottom: 12px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.live-feature-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--color-text);
+}
+
+.live-feature-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+/* Feature bullet list */
+.live-feature-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.live-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.live-list-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    margin-top: 1px;
+}
+
+/* Screenshot side — single phone */
+.live-phone {
+    text-align: center;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.live-phone img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.live-phone img:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(220, 38, 38, 0.15);
+}
+
+.live-phone-caption {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
 /* === AI Features Section === */
 
 .ai-section {
@@ -1151,6 +1328,37 @@ details.faq-item > summary::marker {
         padding-left: 68px;
     }
 
+    /* Live Section — tablet */
+    .live-section {
+        padding: 80px 0 60px;
+    }
+
+    .live-header {
+        margin-bottom: 60px;
+    }
+
+    .live-header .section-title {
+        font-size: 1.8rem;
+    }
+
+    .live-feature {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .live-feature-reverse {
+        direction: ltr;
+    }
+
+    .live-feature-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .live-feature-screenshots {
+        max-width: 240px;
+    }
+
     /* AI Section — tablet */
     .ai-section {
         padding: 80px 0 60px;
@@ -1282,6 +1490,32 @@ details.faq-item > summary::marker {
 
     .nav-links a {
         font-size: 0.72rem;
+    }
+
+    /* Live Section — mobile */
+    .live-header .section-title {
+        font-size: 1.5rem;
+    }
+
+    .live-header .section-title br {
+        display: none;
+    }
+
+    .live-feature {
+        gap: 32px;
+        margin-bottom: 64px;
+    }
+
+    .live-feature-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .live-feature-lead {
+        font-size: 0.95rem;
+    }
+
+    .live-phone {
+        max-width: 200px;
     }
 
     /* AI Section — mobile */

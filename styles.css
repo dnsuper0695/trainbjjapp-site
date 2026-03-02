@@ -104,6 +104,7 @@ img {
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -1277,7 +1278,11 @@ details.faq-item > summary::marker {
     }
 
     .nav-links {
-        gap: 12px;
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
     }
 
     /* AI Section — mobile */

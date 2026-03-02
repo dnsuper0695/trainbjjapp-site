@@ -203,28 +203,21 @@ img {
 }
 
 .screenshot-scroll {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     padding: 20px 24px 32px;
-    scrollbar-width: none;
-}
-
-.screenshot-scroll::-webkit-scrollbar {
-    display: none;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .screenshot-card {
-    flex: 0 0 auto;
-    width: 260px;
-    scroll-snap-align: center;
     text-align: center;
 }
 
 .screenshot-card img {
-    width: 260px;
+    width: 100%;
+    max-width: 260px;
     height: auto;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -1223,12 +1216,18 @@ details.faq-item > summary::marker {
         grid-template-columns: 1fr;
     }
 
-    .screenshot-card {
-        width: 220px;
+    .screenshot-scroll {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 20px 12px 32px;
     }
 
     .screenshot-card img {
-        width: 220px;
+        max-width: 180px;
+    }
+
+    .screenshot-card .caption {
+        font-size: 0.75rem;
     }
 
     .template-box {

@@ -617,6 +617,8 @@ img {
 
 .ai-phone img {
     width: 100%;
+    max-width: 190px;
+    height: auto;
     border-radius: 16px;
     border: 1px solid var(--color-border);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
@@ -659,6 +661,7 @@ img {
 .ai-phone-small img {
     width: 100%;
     max-width: 170px;
+    height: auto;
     border-radius: 12px;
     border: 1px solid var(--color-border);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);

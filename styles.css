@@ -1185,10 +1185,6 @@ details.faq-item > summary::marker {
     }
 
     .ai-feature-screenshots {
-        order: -1;
-    }
-
-    .ai-feature-screenshots {
         max-width: 400px;
     }
 

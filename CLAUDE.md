@@ -34,10 +34,11 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 6. **Live Session** (#live-session) — Red themed section with 4 sub-features (Timer, Controls, Save, Lock Screen)
 7. **Technique Library** (#techniques) — Blue belt themed section with 4 sub-features (Built-In Library, Training History, Instructional Links, Custom Techniques)
 8. **Advanced Analytics** (#analytics) — Brown belt themed section with 4 sub-features (Performance Summary, Position Efficiency, Training Trends, Full Profile Dashboard)
-9. **Social Feed & Stack Up** (#social) — Emerald themed section with 3 sub-features (Social Feed, Stack Up Comparisons, Deep Metric Breakdown)
-10. **Pricing** — Free vs Premium comparison
-11. **Contact/Support** — Email link
-12. **Footer** — Copyright, legal links
+9. **Social Feed & Stack Up** (#social) — White belt themed section with 3 sub-features (Social Feed, Stack Up Comparisons, Deep Metric Breakdown)
+10. **Health Metrics & Data Import** (#health) — Green themed section with 4 sub-features (Health Data on Every Session, Auto-Detection, Import Health History, HealthKit Matching)
+11. **Pricing** — Free vs Premium comparison
+12. **Contact/Support** — Email link
+13. **Footer** — Copyright, legal links
 
 ## CSS Architecture
 
@@ -96,6 +97,12 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Feature numbers: `#93949D`
 - Divider line: `#93949D`
 
+**Health Metrics & Data Import Section** (health green):
+- Badge: `rgba(52, 199, 89, 0.2)` background, `#86EFAC` text
+- Background glow: `rgba(52, 199, 89, 0.08)` radial gradients
+- Feature numbers: `#34C759`
+- Divider line: `#34C759`
+
 ### Feature Detail Section Structure
 
 Each section follows this layout:
@@ -109,7 +116,7 @@ section.{prefix}-section
     div.{prefix}-feature.{prefix}-feature-reverse  — Alternating sides via direction:rtl
 ```
 
-CSS class prefix: `ai-` for AI section, `live-` for Live Session section, `tech-` for Technique Library section, `stat-` for Advanced Analytics section, `social-` for Social Feed & Stack Up section.
+CSS class prefix: `ai-` for AI section, `live-` for Live Session section, `tech-` for Technique Library section, `stat-` for Advanced Analytics section, `social-` for Social Feed & Stack Up section, `health-` for Health Metrics & Data Import section.
 
 ### Alternating Layout
 
@@ -120,7 +127,7 @@ At tablet breakpoint: `direction: ltr` restores natural order (text above screen
 ### Clickable Feature Cards
 
 Feature cards that link to detail sections use `<a>` tags with class `feature-card feature-card-link`.
-Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`, 150+ Technique Library → `#techniques`, Advanced Analytics → `#analytics`, Social Feed & Training Partners → `#social`.
+Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`, 150+ Technique Library → `#techniques`, Advanced Analytics → `#analytics`, Social Feed & Training Partners → `#social`, Health Metrics & Data Import → `#health`.
 
 ## Image Conventions
 
@@ -136,6 +143,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | `tech-` | Technique Library screenshots | `tech-01.png` through `tech-04.png` |
 | `analytics-` | Advanced Analytics screenshots | `analytics-01.png` through `analytics-04.png` |
 | `social-` | Social Feed & Stack Up screenshots | `social-01.png` through `social-03.png` |
+| `health-` | Health Metrics & Data Import screenshots | `health-01.png` through `health-04.png` |
 
 ### Sizing (HTML width attributes as failsafe)
 
@@ -147,6 +155,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | Live Session phones | `220` | `220px` |
 | Analytics phones | `220` | `220px` |
 | Social phones | `220` | `220px` |
+| Health phones | `220` | `220px` |
 | Hero showcase | (none) | `260px` |
 
 ### Cache Busting
@@ -160,7 +169,7 @@ When replacing images with the same filename, add `?v=N` query string to force b
 
 - Links use `white-space: nowrap` to prevent wrapping
 - At 480px: font shrinks to `0.72rem`, gap to `8px`
-- **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features", "Live Session", "Technique Library", "Advanced Analytics", and "Social & Stack Up"
+- **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features", "Live Session", "Technique Library", "Advanced Analytics", "Social & Stack Up", and "Health & Import"
 - Dropdown is CSS-only (hover to reveal), with chevron arrow that flips on hover
 - Invisible `::before` bridge (8px) prevents hover gap between link and dropdown menu
 - Dropdown styled with `var(--color-bg-card)` background, `backdrop-filter: blur(16px)`, accent hover highlight
@@ -190,6 +199,7 @@ Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Websit
 - `TechniqueLibrary/` — Technique Library screenshots (`01.png` through `04.png`)
 - `AdvancedAnalytics/` — Advanced Analytics screenshots (`01.png` through `04.png`)
 - `social_stackup/` — Social Feed & Stack Up screenshots (`01.png` through `03.png`)
+- `HealthMetrics/` — Health Metrics & Data Import screenshots (`01.png` through `04.png`)
 
 Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.
 

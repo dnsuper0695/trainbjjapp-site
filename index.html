@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="images/icon.png">
     <link rel="apple-touch-icon" href="images/icon.png">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
                         <li><a href="#techniques">Technique Library</a></li>
                         <li><a href="#analytics">Advanced Analytics</a></li>
                         <li><a href="#social">Social &amp; Stack Up</a></li>
+                        <li><a href="#health">Health &amp; Import</a></li>
                     </ul>
                 </li>
                 <li><a href="ai-feedback.html">AI Feedback</a></li>
@@ -116,11 +117,11 @@
                     <h3>Social Feed &amp; Training Partners</h3>
                     <p>Follow training partners, react to sessions, comment, and compare stats side-by-side with Stack Up comparisons.</p>
                 </a>
-                <div class="feature-card">
+                <a href="#health" class="feature-card feature-card-link">
                     <div class="feature-icon">&#9829;</div>
-                    <h3>Apple Health &amp; iCloud Sync</h3>
-                    <p>Auto-detect workouts from Apple Watch. Heart rate and calories pulled from HealthKit. iCloud sync keeps your data safe across devices.</p>
-                </div>
+                    <h3>Health Metrics &amp; Data Import</h3>
+                    <p>Auto-detect workouts from any wearable. Heart rate and calories from Apple Health. Import past sessions via bulk import, CSV, or notebook scanner.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -607,6 +608,100 @@
                     <div class="social-phone">
                         <img src="images/social-02.png" alt="Stack Up consistency and offense metrics with comparison bars" loading="lazy" width="220">
                         <p class="social-phone-caption">Detailed breakdown across every category</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Health Metrics & Data Import -->
+    <section id="health" class="health-section">
+        <div class="container">
+
+            <!-- Section Header -->
+            <div class="health-header">
+                <span class="health-badge">Health &amp; Wearables</span>
+                <h2 class="section-title">Your Wearable,<br>Your Data</h2>
+                <p class="section-subtitle">Train BJJ works with any fitness wearable that writes to Apple Health &mdash; WHOOP, Garmin, Polar, Apple Watch, Oura Ring, Fitbit, COROS, Suunto, and more. Heart rate, calories, and duration flow into every session automatically.</p>
+            </div>
+
+            <!-- Feature 1: Health Data on Every Session -->
+            <div class="health-feature" id="health-session">
+                <div class="health-feature-content">
+                    <div class="health-feature-number">01</div>
+                    <h3>Health Data on Every Session</h3>
+                    <p class="health-feature-lead">Heart rate, calories burned, and workout duration are pulled directly from Apple Health and attached to your training sessions. No manual entry &mdash; just train and your wearable handles the rest.</p>
+                    <ul class="health-feature-list">
+                        <li><span class="health-list-icon">&#9829;</span> Average heart rate, calories, and duration shown on every session detail</li>
+                        <li><span class="health-list-icon">&#9000;&#65039;</span> Works with any device that syncs to Apple Health &mdash; WHOOP, Garmin, Polar, Apple Watch, Oura Ring, Fitbit, COROS, Suunto, and more</li>
+                        <li><span class="health-list-icon">&#128200;</span> Health stats flow into your profile analytics and shareable session cards</li>
+                    </ul>
+                </div>
+                <div class="health-feature-screenshots">
+                    <div class="health-phone">
+                        <img src="images/health-01.png" alt="Session detail showing health data card with heart rate, calories, and duration from Apple Watch" loading="lazy" width="220">
+                        <p class="health-phone-caption">Heart rate, calories, and duration on every session</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Auto-Detection -->
+            <div class="health-feature health-feature-reverse" id="health-detect">
+                <div class="health-feature-content">
+                    <div class="health-feature-number">02</div>
+                    <h3>Automatic Session Detection</h3>
+                    <p class="health-feature-lead">Finish training and Train BJJ knows. The app monitors Apple Health for new workouts and prompts you to log a session &mdash; with the health data already attached. One tap and you're done.</p>
+                    <ul class="health-feature-list">
+                        <li><span class="health-list-icon">&#128276;</span> Workout Detected prompt appears automatically after training</li>
+                        <li><span class="health-list-icon">&#9201;&#65039;</span> Duration, calories, heart rate, and source device shown at a glance</li>
+                        <li><span class="health-list-icon">&#128073;</span> Tap "Create Session" to log it instantly with all health data pre-filled</li>
+                    </ul>
+                </div>
+                <div class="health-feature-screenshots">
+                    <div class="health-phone">
+                        <img src="images/health-02.png" alt="Workout Detected sheet showing WHOOP workout with calories and heart rate" loading="lazy" width="220">
+                        <p class="health-phone-caption">Auto-detected workout ready to log in one tap</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Import Health History -->
+            <div class="health-feature" id="health-import">
+                <div class="health-feature-content">
+                    <div class="health-feature-number">03</div>
+                    <h3>Import Health History</h3>
+                    <p class="health-feature-lead">Started using Train BJJ after months of training? No problem. Bulk import past workouts directly from Apple Health &mdash; choose a 3, 6, or 12 month window and bring your entire training history up to speed in seconds.</p>
+                    <ul class="health-feature-list">
+                        <li><span class="health-list-icon">&#128197;</span> Pull martial arts, wrestling, and mixed cardio workouts from Apple Health</li>
+                        <li><span class="health-list-icon">&#128203;</span> Select which workouts to import &mdash; see type, duration, and calories for each</li>
+                        <li><span class="health-list-icon">&#9989;</span> Duplicate detection ensures workouts already in your journal aren't imported twice</li>
+                    </ul>
+                </div>
+                <div class="health-feature-screenshots">
+                    <div class="health-phone">
+                        <img src="images/health-03.png" alt="Import Health History screen showing past workouts from Apple Health" loading="lazy" width="220">
+                        <p class="health-phone-caption">Bulk import past workouts from Apple Health</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 4: HealthKit Matching for All Imports -->
+            <div class="health-feature health-feature-reverse" id="health-match">
+                <div class="health-feature-content">
+                    <div class="health-feature-number">04</div>
+                    <h3>HealthKit Matching for Every Import</h3>
+                    <p class="health-feature-lead">However you bring data into Train BJJ, health metrics come along for the ride. CSV import, notebook scanner, and direct Health import all match your sessions to the closest HealthKit workout &mdash; so every session gets heart rate and calories attached.</p>
+                    <ul class="health-feature-list">
+                        <li><span class="health-list-icon">&#128196;</span> CSV import matches each row to the closest HealthKit workout by time</li>
+                        <li><span class="health-list-icon">&#128247;</span> Notebook scanner photos match to HealthKit workouts on the same date</li>
+                        <li><span class="health-list-icon">&#128279;</span> Toggle "Match with HealthKit workouts" on or off for any import method</li>
+                    </ul>
+                </div>
+                <div class="health-feature-screenshots">
+                    <div class="health-phone">
+                        <img src="images/health-04.png" alt="CSV import screen with Match with HealthKit workouts toggle enabled" loading="lazy" width="220">
+                        <p class="health-phone-caption">Every import method enriches sessions with health data</p>
                     </div>
                 </div>
             </div>

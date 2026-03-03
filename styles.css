@@ -1483,6 +1483,180 @@ img {
     line-height: 1.4;
 }
 
+/* === Health Metrics & Data Import Section === */
+
+.health-section {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle health green glow behind the section */
+.health-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(52, 199, 89, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(72, 219, 109, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(52, 199, 89, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.health-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Top divider line */
+.health-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #34C759, transparent);
+    z-index: 1;
+}
+
+/* Section header */
+.health-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.health-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, rgba(52, 199, 89, 0.2), rgba(72, 219, 109, 0.2));
+    border: 1px solid rgba(52, 199, 89, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #86EFAC;
+    margin-bottom: 20px;
+}
+
+.health-header .section-title {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.health-header .section-subtitle {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* Feature blocks */
+.health-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.health-feature:last-child {
+    margin-bottom: 0;
+}
+
+.health-feature-screenshots {
+    display: flex;
+    justify-content: center;
+}
+
+/* Alternating layout */
+.health-feature-reverse {
+    direction: rtl;
+}
+
+.health-feature-reverse > * {
+    direction: ltr;
+}
+
+/* Content side */
+.health-feature-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #34C759;
+    margin-bottom: 12px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.health-feature-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.health-feature-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.health-feature-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.health-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.health-list-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+}
+
+/* Phone screenshots */
+.health-phone {
+    max-width: 220px;
+    text-align: center;
+}
+
+.health-phone img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.health-phone img:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(52, 199, 89, 0.15);
+}
+
+.health-phone-caption {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
 /* === Sub-Page Styles (Privacy, Terms, Support, AI Feedback) === */
 
 .page-header {
@@ -2101,6 +2275,37 @@ details.faq-item > summary::marker {
     .social-feature-screenshots {
         max-width: 240px;
     }
+
+    /* Health Section — tablet */
+    .health-section {
+        padding: 80px 0 60px;
+    }
+
+    .health-header {
+        margin-bottom: 60px;
+    }
+
+    .health-header .section-title {
+        font-size: 1.8rem;
+    }
+
+    .health-feature {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .health-feature-reverse {
+        direction: ltr;
+    }
+
+    .health-feature-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .health-feature-screenshots {
+        max-width: 240px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2335,6 +2540,32 @@ details.faq-item > summary::marker {
     }
 
     .social-phone {
+        max-width: 200px;
+    }
+
+    /* Health Section — mobile */
+    .health-header .section-title {
+        font-size: 1.5rem;
+    }
+
+    .health-header .section-title br {
+        display: none;
+    }
+
+    .health-feature {
+        gap: 32px;
+        margin-bottom: 64px;
+    }
+
+    .health-feature-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .health-feature-lead {
+        font-size: 0.95rem;
+    }
+
+    .health-phone {
         max-width: 200px;
     }
 }

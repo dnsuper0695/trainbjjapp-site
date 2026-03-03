@@ -26,7 +26,7 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 
 ## Page Sections (index.html, top to bottom)
 
-1. **Nav** — Logo + links (FAQ, Features, AI, Live, AI Feedback, Support)
+1. **Nav** — Logo + links (FAQ, Features [dropdown: AI Features, Live Session], AI Feedback, Support)
 2. **Hero** — App icon, tagline, App Store button
 3. **Screenshot Showcase** ("See It in Action") — 3x2 grid of app screenshots
 4. **Features** ("Everything You Need to Level Up") — 6 feature cards (2 are clickable: AI → #ai, Live → #live-session)
@@ -127,14 +127,17 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 
 When replacing images with the same filename, add `?v=N` query string to force browsers to fetch the new version:
 ```html
-<img src="images/ai-scan-1.png?v=2" ...>
+<img src="images/ai-scan-1.png?v=3" ...>
 ```
 
 ## Nav Bar
 
 - Links use `white-space: nowrap` to prevent wrapping
 - At 480px: font shrinks to `0.72rem`, gap to `8px`
-- Keep link text short (single words preferred: "FAQ", "Features", "AI", "Live")
+- **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features" and "Live Session"
+- Dropdown is CSS-only (hover to reveal), with chevron arrow that flips on hover
+- Invisible `::before` bridge (8px) prevents hover gap between link and dropdown menu
+- Dropdown styled with `var(--color-bg-card)` background, `backdrop-filter: blur(16px)`, accent hover highlight
 
 ## Key Patterns
 
@@ -145,13 +148,21 @@ When replacing images with the same filename, add `?v=N` query string to force b
 3. Add CSS with themed prefix (badge, glow, numbers, divider)
 4. Add tablet breakpoint rules (single column, `direction: ltr`)
 5. Add mobile breakpoint rules (smaller fonts, tighter spacing)
-6. Add nav link in header
+6. Add to Features dropdown in nav (`ul.nav-dropdown-menu`)
 
 ### Screenshot Grid Layouts
 
 - **2 phones side by side**: `.ai-phone-pair` (flexbox, 20px gap)
 - **4 phones in 2x2 grid**: `.ai-scanner-grid` (CSS grid, 2 columns)
 - **Single phone centered**: `.ai-phone-single` or `.live-phone` (max-width + margin auto)
+
+### Screenshot Source Directory
+
+Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Website Screenshots/`:
+- `AI/` — AI Coach, Scanner, and Insights screenshots (e.g. `Scan1.png` through `Scan4.png`)
+- `LiveSession/` — Live Session screenshots (e.g. `01.png` through `04.png`)
+
+Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.
 
 ## Contact Info
 

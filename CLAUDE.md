@@ -90,11 +90,11 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Feature numbers: `#B16F42`
 - Divider line: `#B16F42`
 
-**Social Feed & Stack Up Section** (emerald):
-- Badge: `rgba(16, 185, 129, 0.2)` background, `#6EE7B7` text
-- Background glow: `rgba(16, 185, 129, 0.08)` radial gradients
-- Feature numbers: `#10B981`
-- Divider line: `#10B981`
+**Social Feed & Stack Up Section** (white belt):
+- Badge: `rgba(147, 148, 157, 0.2)` background, `#C8C9CE` text
+- Background glow: `rgba(147, 148, 157, 0.08)` radial gradients
+- Feature numbers: `#93949D`
+- Divider line: `#93949D`
 
 ### Feature Detail Section Structure
 

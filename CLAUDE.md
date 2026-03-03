@@ -76,11 +76,11 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Feature numbers: `#dc2626`
 - Divider line: `#dc2626`
 
-**Technique Library Section** (emerald/green):
-- Badge: `rgba(16, 185, 129, 0.2)` background, `#6ee7b7` text
-- Background glow: `rgba(16, 185, 129, 0.08)` radial gradients
-- Feature numbers: `#10b981`
-- Divider line: `#10b981`
+**Technique Library Section** (blue belt):
+- Badge: `rgba(46, 115, 174, 0.2)` background, `#7EC8E3` text
+- Background glow: `rgba(46, 115, 174, 0.08)` radial gradients
+- Feature numbers: `#2E73AE`
+- Divider line: `#2E73AE`
 
 ### Feature Detail Section Structure
 

@@ -97,11 +97,11 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Feature numbers: `#93949D`
 - Divider line: `#93949D`
 
-**Health Metrics & Data Import Section** (health green):
-- Badge: `rgba(52, 199, 89, 0.2)` background, `#86EFAC` text
-- Background glow: `rgba(52, 199, 89, 0.08)` radial gradients
-- Feature numbers: `#34C759`
-- Divider line: `#34C759`
+**Health Metrics & Data Import Section** (blue belt):
+- Badge: `rgba(46, 115, 174, 0.2)` background, `#7EC8E3` text
+- Background glow: `rgba(46, 115, 174, 0.08)` radial gradients
+- Feature numbers: `#2E73AE`
+- Divider line: `#2E73AE`
 
 ### Feature Detail Section Structure
 

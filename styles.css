@@ -1306,6 +1306,183 @@ img {
     line-height: 1.4;
 }
 
+/* === Social Feed & Stack Up Section === */
+
+.social-section {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle emerald glow behind the section */
+.social-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(52, 211, 153, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.social-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Divider line above Social section */
+.social-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #10B981, transparent);
+    z-index: 1;
+}
+
+/* Section header */
+.social-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.social-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(52, 211, 153, 0.2));
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #6EE7B7;
+    margin-bottom: 20px;
+}
+
+.social-header .section-title {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.social-header .section-subtitle {
+    max-width: 600px;
+}
+
+/* Individual Social feature blocks */
+.social-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.social-feature:last-child {
+    margin-bottom: 0;
+}
+
+.social-feature-screenshots {
+    max-width: 280px;
+    justify-self: center;
+}
+
+.social-feature-reverse {
+    direction: rtl;
+}
+
+.social-feature-reverse > * {
+    direction: ltr;
+}
+
+/* Content side */
+.social-feature-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #10B981;
+    margin-bottom: 12px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.social-feature-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--color-text);
+}
+
+.social-feature-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+/* Feature bullet list */
+.social-feature-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.social-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.social-list-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    margin-top: 1px;
+}
+
+/* Screenshot side — single phone */
+.social-phone {
+    text-align: center;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.social-phone img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-phone img:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(16, 185, 129, 0.15);
+}
+
+.social-phone-caption {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
 /* === Sub-Page Styles (Privacy, Terms, Support, AI Feedback) === */
 
 .page-header {
@@ -1893,6 +2070,37 @@ details.faq-item > summary::marker {
     .stat-feature-screenshots {
         max-width: 240px;
     }
+
+    /* Social Section — tablet */
+    .social-section {
+        padding: 80px 0 60px;
+    }
+
+    .social-header {
+        margin-bottom: 60px;
+    }
+
+    .social-header .section-title {
+        font-size: 1.8rem;
+    }
+
+    .social-feature {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .social-feature-reverse {
+        direction: ltr;
+    }
+
+    .social-feature-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .social-feature-screenshots {
+        max-width: 240px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2101,6 +2309,32 @@ details.faq-item > summary::marker {
     }
 
     .stat-phone {
+        max-width: 200px;
+    }
+
+    /* Social Section — mobile */
+    .social-header .section-title {
+        font-size: 1.5rem;
+    }
+
+    .social-header .section-title br {
+        display: none;
+    }
+
+    .social-feature {
+        gap: 32px;
+        margin-bottom: 64px;
+    }
+
+    .social-feature-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .social-feature-lead {
+        font-size: 0.95rem;
+    }
+
+    .social-phone {
         max-width: 200px;
     }
 }

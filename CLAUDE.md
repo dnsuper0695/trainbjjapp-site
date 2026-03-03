@@ -29,13 +29,14 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 1. **Nav** — Logo + links (FAQ, Features [dropdown: AI Features, Live Session, Technique Library], AI Feedback, Support)
 2. **Hero** — App icon, tagline, App Store button
 3. **Screenshot Showcase** ("See It in Action") — 3x2 grid of app screenshots
-4. **Features** ("Everything You Need to Level Up") — 6 feature cards (3 are clickable: AI → #ai, Live → #live-session, Techniques → #techniques)
+4. **Features** ("Everything You Need to Level Up") — 6 feature cards (4 are clickable: AI → #ai, Live → #live-session, Techniques → #techniques, Analytics → #analytics)
 5. **AI Features** (#ai) — Indigo/purple themed section with 3 sub-features (Coach, Scanner, Insights)
 6. **Live Session** (#live-session) — Red themed section with 4 sub-features (Timer, Controls, Save, Lock Screen)
-7. **Technique Library** (#techniques) — Emerald/green themed section with 4 sub-features (Built-In Library, Training History, Instructional Links, Custom Techniques)
-8. **Pricing** — Free vs Premium comparison
-9. **Contact/Support** — Email link
-10. **Footer** — Copyright, legal links
+7. **Technique Library** (#techniques) — Blue belt themed section with 4 sub-features (Built-In Library, Training History, Instructional Links, Custom Techniques)
+8. **Advanced Analytics** (#analytics) — Brown belt themed section with 4 sub-features (Performance Summary, Position Efficiency, Training Trends, Full Profile Dashboard)
+9. **Pricing** — Free vs Premium comparison
+10. **Contact/Support** — Email link
+11. **Footer** — Copyright, legal links
 
 ## CSS Architecture
 
@@ -82,6 +83,12 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Feature numbers: `#2E73AE`
 - Divider line: `#2E73AE`
 
+**Advanced Analytics Section** (brown belt):
+- Badge: `rgba(177, 111, 66, 0.2)` background, `#D4A574` text
+- Background glow: `rgba(177, 111, 66, 0.08)` radial gradients
+- Feature numbers: `#B16F42`
+- Divider line: `#B16F42`
+
 ### Feature Detail Section Structure
 
 Each section follows this layout:
@@ -95,7 +102,7 @@ section.{prefix}-section
     div.{prefix}-feature.{prefix}-feature-reverse  — Alternating sides via direction:rtl
 ```
 
-CSS class prefix: `ai-` for AI section, `live-` for Live Session section, `tech-` for Technique Library section.
+CSS class prefix: `ai-` for AI section, `live-` for Live Session section, `tech-` for Technique Library section, `stat-` for Advanced Analytics section.
 
 ### Alternating Layout
 
@@ -106,7 +113,7 @@ At tablet breakpoint: `direction: ltr` restores natural order (text above screen
 ### Clickable Feature Cards
 
 Feature cards that link to detail sections use `<a>` tags with class `feature-card feature-card-link`.
-Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`, 150+ Technique Library → `#techniques`.
+Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`, 150+ Technique Library → `#techniques`, Advanced Analytics → `#analytics`.
 
 ## Image Conventions
 
@@ -120,6 +127,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | `ai-session-` | Post-Session Insights | `ai-session-analysis.png` |
 | `live-session-` | Live Session screenshots | `live-session-1.png` through `live-session-4.png` |
 | `tech-` | Technique Library screenshots | `tech-01.png` through `tech-04.png` |
+| `analytics-` | Advanced Analytics screenshots | `analytics-01.png` through `analytics-04.png` |
 
 ### Sizing (HTML width attributes as failsafe)
 
@@ -129,6 +137,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | Scanner grid | `170` | `170px` |
 | Insights single | `220` | `220px` |
 | Live Session phones | `220` | `220px` |
+| Analytics phones | `220` | `220px` |
 | Hero showcase | (none) | `260px` |
 
 ### Cache Busting
@@ -142,7 +151,7 @@ When replacing images with the same filename, add `?v=N` query string to force b
 
 - Links use `white-space: nowrap` to prevent wrapping
 - At 480px: font shrinks to `0.72rem`, gap to `8px`
-- **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features" and "Live Session"
+- **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features", "Live Session", "Technique Library", and "Advanced Analytics"
 - Dropdown is CSS-only (hover to reveal), with chevron arrow that flips on hover
 - Invisible `::before` bridge (8px) prevents hover gap between link and dropdown menu
 - Dropdown styled with `var(--color-bg-card)` background, `backdrop-filter: blur(16px)`, accent hover highlight
@@ -170,6 +179,7 @@ Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Websit
 - `AI/` — AI Coach, Scanner, and Insights screenshots (e.g. `Scan1.png` through `Scan4.png`)
 - `LiveSession/` — Live Session screenshots (e.g. `01.png` through `04.png`)
 - `TechniqueLibrary/` — Technique Library screenshots (`01.png` through `04.png`)
+- `AdvancedAnalytics/` — Advanced Analytics screenshots (`01.png` through `04.png`)
 
 Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.
 

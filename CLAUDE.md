@@ -34,8 +34,8 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 6. **Live Session** (#live-session) — Red themed section with 4 sub-features (Timer, Controls, Save, Lock Screen)
 7. **Technique Library** (#techniques) — Blue belt themed section with 4 sub-features (Built-In Library, Training History, Instructional Links, Custom Techniques)
 8. **Advanced Analytics** (#analytics) — Brown belt themed section with 4 sub-features (Performance Summary, Position Efficiency, Training Trends, Full Profile Dashboard)
-9. **Social Feed & Stack Up** (#social) — White belt themed section with 3 sub-features (Social Feed, Stack Up Comparisons, Deep Metric Breakdown)
-10. **Health Metrics & Data Import** (#health) — Green themed section with 4 sub-features (Health Data on Every Session, Auto-Detection, Import Health History, HealthKit Matching)
+9. **Social Feed & Stack Up** (#social) — White belt themed section with 4 sub-features (Social Feed, Stack Up Comparisons, Deep Metric Breakdown, Shareable Session Cards)
+10. **Health Metrics & Data Import** (#health) — Blue belt themed section with 4 sub-features (Health Data on Every Session, Auto-Detection, Import Health History, HealthKit Matching)
 11. **Pricing** — Free vs Premium comparison
 12. **Contact/Support** — Email link
 13. **Footer** — Copyright, legal links
@@ -142,7 +142,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | `live-session-` | Live Session screenshots | `live-session-1.png` through `live-session-4.png` |
 | `tech-` | Technique Library screenshots | `tech-01.png` through `tech-04.png` |
 | `analytics-` | Advanced Analytics screenshots | `analytics-01.png` through `analytics-04.png` |
-| `social-` | Social Feed & Stack Up screenshots | `social-01.png` through `social-03.png` |
+| `social-` | Social Feed & Stack Up screenshots | `social-01.png` through `social-04.png` |
 | `health-` | Health Metrics & Data Import screenshots | `health-01.png` through `health-04.png` |
 
 ### Sizing (HTML width attributes as failsafe)

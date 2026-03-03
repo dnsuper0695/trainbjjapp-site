@@ -26,15 +26,16 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 
 ## Page Sections (index.html, top to bottom)
 
-1. **Nav** — Logo + links (FAQ, Features [dropdown: AI Features, Live Session], AI Feedback, Support)
+1. **Nav** — Logo + links (FAQ, Features [dropdown: AI Features, Live Session, Technique Library], AI Feedback, Support)
 2. **Hero** — App icon, tagline, App Store button
 3. **Screenshot Showcase** ("See It in Action") — 3x2 grid of app screenshots
-4. **Features** ("Everything You Need to Level Up") — 6 feature cards (2 are clickable: AI → #ai, Live → #live-session)
+4. **Features** ("Everything You Need to Level Up") — 6 feature cards (3 are clickable: AI → #ai, Live → #live-session, Techniques → #techniques)
 5. **AI Features** (#ai) — Indigo/purple themed section with 3 sub-features (Coach, Scanner, Insights)
 6. **Live Session** (#live-session) — Red themed section with 4 sub-features (Timer, Controls, Save, Lock Screen)
-7. **Pricing** — Free vs Premium comparison
-8. **Contact/Support** — Email link
-9. **Footer** — Copyright, legal links
+7. **Technique Library** (#techniques) — Emerald/green themed section with 4 sub-features (Built-In Library, Training History, Instructional Links, Custom Techniques)
+8. **Pricing** — Free vs Premium comparison
+9. **Contact/Support** — Email link
+10. **Footer** — Copyright, legal links
 
 ## CSS Architecture
 
@@ -75,6 +76,12 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Feature numbers: `#dc2626`
 - Divider line: `#dc2626`
 
+**Technique Library Section** (emerald/green):
+- Badge: `rgba(16, 185, 129, 0.2)` background, `#6ee7b7` text
+- Background glow: `rgba(16, 185, 129, 0.08)` radial gradients
+- Feature numbers: `#10b981`
+- Divider line: `#10b981`
+
 ### Feature Detail Section Structure
 
 Each section follows this layout:
@@ -88,7 +95,7 @@ section.{prefix}-section
     div.{prefix}-feature.{prefix}-feature-reverse  — Alternating sides via direction:rtl
 ```
 
-CSS class prefix: `ai-` for AI section, `live-` for Live Session section.
+CSS class prefix: `ai-` for AI section, `live-` for Live Session section, `tech-` for Technique Library section.
 
 ### Alternating Layout
 
@@ -99,7 +106,7 @@ At tablet breakpoint: `direction: ltr` restores natural order (text above screen
 ### Clickable Feature Cards
 
 Feature cards that link to detail sections use `<a>` tags with class `feature-card feature-card-link`.
-Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`.
+Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`, 150+ Technique Library → `#techniques`.
 
 ## Image Conventions
 
@@ -112,6 +119,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | `ai-scan-` | Notebook Scanner screenshots | `ai-scan-1.png` through `ai-scan-4.png` |
 | `ai-session-` | Post-Session Insights | `ai-session-analysis.png` |
 | `live-session-` | Live Session screenshots | `live-session-1.png` through `live-session-4.png` |
+| `tech-` | Technique Library screenshots | `tech-01.png` through `tech-04.png` |
 
 ### Sizing (HTML width attributes as failsafe)
 
@@ -161,6 +169,7 @@ When replacing images with the same filename, add `?v=N` query string to force b
 Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Website Screenshots/`:
 - `AI/` — AI Coach, Scanner, and Insights screenshots (e.g. `Scan1.png` through `Scan4.png`)
 - `LiveSession/` — Live Session screenshots (e.g. `01.png` through `04.png`)
+- `TechniqueLibrary/` — Technique Library screenshots (`01.png` through `04.png`)
 
 Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.
 

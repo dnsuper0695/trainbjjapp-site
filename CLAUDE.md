@@ -181,11 +181,11 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | Health phones | `220` | `220px` |
 | Hero showcase | (none) | `260px` |
 
-### Cache Busting (REQUIRED after CSS/JS changes)
+### Cache Busting (REQUIRED after CSS/JS/image changes)
 
-**CRITICAL**: After ANY change to `styles.css` or `script.js`, you MUST bump the `?v=N` cache buster query string in ALL HTML files that reference the changed file. Browsers aggressively cache these files — without bumping, users will not see changes on the live site.
+**CRITICAL**: After ANY change to `styles.css`, `script.js`, or **replacing image files**, you MUST bump the `?v=N` cache buster query string. Browsers aggressively cache these files — without bumping, users will not see changes on the live site.
 
-**Files to update** (all 5 HTML files reference `styles.css`):
+**CSS/JS cache busters** (all 5 HTML files reference `styles.css`):
 - `index.html`
 - `faq.html`
 - `privacy.html`
@@ -194,12 +194,13 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 
 **Current version**: `styles.css?v=12`, `script.js?v=1`
 
-**How to bump**: Increment the number (e.g. `?v=9` → `?v=10`) in every `<link>` and `<script>` tag across all HTML files.
+**How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
-**For images**: When replacing images with the same filename, add `?v=N` to the `<img>` src:
-```html
-<img src="images/ai-scan-1.png?v=3" ...>
-```
+**Image cache busters** (REQUIRED when replacing an image with the same filename):
+- Increment the `?v=N` on every `<img>` `src` that references the replaced file in `index.html`
+- If the image had no `?v=N`, add `?v=2`
+- Example: `<img src="images/ai-scan-1.png?v=4" ...>`
+- This applies to ALL image replacements, not just CSS/JS changes
 
 ## Nav Bar
 
@@ -282,19 +283,31 @@ Two-column grid (`.hero-grid`: `1fr 1.4fr`) with left-aligned content and right 
 
 ### Screenshot Source Directory
 
-Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Website Screenshots/`:
-- `AI/` — AI Coach, Scanner, and Insights screenshots (e.g. `Scan1.png` through `Scan4.png`)
+Original screenshots are stored in `~/Documents/Developer/Screenshots/Website Screenshots/`:
+- `AI/OriginalScreenshots/` — Raw simulator screenshots for AI section (AIChat1.png, AIChat2.png, Scan1-4.png, SessionAnalysis.png). These are the clean simulator captures without bezels or captions.
+- `AI/` — Processed versions with bezels and captions added
 - `LiveSession/` — Live Session screenshots (e.g. `01.png` through `04.png`)
 - `TechniqueLibrary/` — Technique Library screenshots (`01.png` through `04.png`)
 - `AdvancedAnalytics/` — Advanced Analytics screenshots (`01.png` through `04.png`)
 - `social_stackup/` — Social Feed & Stack Up screenshots (`01.png` through `04.png`)
 - `HealthMetrics/` — Health Metrics & Data Import screenshots (`01.png` through `04.png`)
 
-Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.
+Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and **always bump the `?v=N` cache buster** on the `<img>` tags in `index.html`.
 
 ### Screenshot Processing
 
-All 33 screenshot PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
+**Non-AI sections** (26 screenshots): All PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
+
+**AI section** (7 screenshots): Uses raw simulator screenshots from `AI/OriginalScreenshots/` with CSS-based phone case effect (indigo gradient border + padding + floating animation). No bezel or dynamic island processing needed.
+
+### AI Screenshot Animation
+
+All AI section phone screenshots (`.ai-phone img`, `.ai-phone-small img`) have:
+- **Floating animation**: `@keyframes ai-phone-float` — 8px vertical bob, 4s cycle, `ease-in-out`
+- **Staggered timing**: Second coach phone offset by -2s; scanner grid phones staggered by -1s each
+- **Phone case border**: 3px solid `rgba(99, 102, 241, 0.4)` with 3px padding and indigo gradient background
+- **Glow shadow**: Layered indigo `box-shadow` (persistent + enhanced on hover)
+- **Reduced motion**: Animation disabled via `prefers-reduced-motion`
 
 ## Contact Info
 

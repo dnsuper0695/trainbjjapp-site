@@ -1007,21 +1007,36 @@ img {
     max-width: 190px;
 }
 
+/* Floating animation for AI Coach phones */
+@keyframes ai-phone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
 .ai-phone img {
     width: 100%;
     max-width: 190px;
     height: auto;
     border-radius: 16px;
     border: 1px solid var(--color-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(99, 102, 241, 0.25),
+        0 0 40px rgba(99, 102, 241, 0.1);
+    transition: box-shadow 0.3s;
+    animation: ai-phone-float 4s ease-in-out infinite;
+}
+
+/* Stagger second phone for natural feel */
+.ai-phone:nth-child(2) img {
+    animation-delay: -2s;
 }
 
 .ai-phone img:hover {
-    transform: translateY(-4px);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px var(--color-accent-glow);
+        0 0 30px rgba(99, 102, 241, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.15);
 }
 
 .ai-phone-caption {
@@ -2521,6 +2536,10 @@ footer {
 
     .screenshot-card:hover img {
         transform: translateY(-4px);
+    }
+
+    .ai-phone img {
+        animation: none;
     }
 }
 

@@ -2219,7 +2219,7 @@ body::after {
         );
 }
 
-.nav, .hero, .section,
+.hero, .section,
 .screenshot-showcase,
 .ai-section, .live-section, .tech-section,
 .stat-section, .social-section, .health-section,
@@ -2232,9 +2232,9 @@ footer {
 
 .scroll-progress {
     position: fixed;
-    top: 64px;
+    top: 63px;
     left: 0;
-    height: 3px;
+    height: 2px;
     width: 0%;
     background: linear-gradient(90deg, var(--color-accent), #8b5cf6, #dc2626);
     z-index: 101;

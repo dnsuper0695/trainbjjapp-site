@@ -189,15 +189,25 @@ img {
 
 /* Hero */
 .hero {
-    padding: 140px 0 60px;
-    text-align: center;
+    padding: 100px 0 40px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: left;
 }
 
 .hero-icon {
-    width: 120px;
-    height: 120px;
-    border-radius: 28px;
-    margin: 0 auto 32px;
+    width: 100px;
+    height: 100px;
+    border-radius: 24px;
+    margin: 0 0 24px;
     display: block;
     box-shadow:
         0 0 40px var(--color-accent-glow),
@@ -206,10 +216,10 @@ img {
 }
 
 .hero h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     background: linear-gradient(135deg, #ffffff 0%, #c4c4d4 50%, #8888a8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -217,11 +227,51 @@ img {
 }
 
 .hero .tagline {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-text-muted);
     max-width: 520px;
-    margin: 0 auto 40px;
+    margin: 0 0 28px;
     line-height: 1.7;
+}
+
+/* Hero Screenshots Grid */
+.hero-screenshots-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+}
+
+.hero-screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.hero-screenshot-grid img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-screenshot-grid img:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.4),
+        0 0 20px var(--color-accent-glow);
+}
+
+.hero-screenshots-subtitle {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 16px;
+    font-style: italic;
 }
 
 .app-store-btn {
@@ -501,7 +551,7 @@ img {
     overflow: hidden;
 }
 
-/* Subtle red/warm glow behind the section */
+/* Background glow behind the section */
 .live-section::before {
     content: '';
     position: absolute;
@@ -511,9 +561,9 @@ img {
     width: 120%;
     height: 100%;
     background:
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(239, 68, 68, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(220, 38, 38, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(220, 38, 38, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(239, 68, 68, 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(220, 38, 38, 0.20) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -530,8 +580,8 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 400px;
+    height: 4px;
     background: linear-gradient(90deg, transparent, #dc2626, transparent);
     z-index: 1;
 }
@@ -545,8 +595,8 @@ img {
 .live-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(239, 68, 68, 0.2));
-    border: 1px solid rgba(220, 38, 38, 0.3);
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.35), rgba(239, 68, 68, 0.35));
+    border: 1px solid rgba(220, 38, 38, 0.5);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -660,7 +710,7 @@ img {
     transform: translateY(-4px);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(220, 38, 38, 0.15);
+        0 0 24px rgba(220, 38, 38, 0.30);
 }
 
 .live-phone-caption {
@@ -678,7 +728,7 @@ img {
     overflow: hidden;
 }
 
-/* Subtle background glow behind the section */
+/* Background glow behind the section */
 .ai-section::before {
     content: '';
     position: absolute;
@@ -688,9 +738,9 @@ img {
     width: 120%;
     height: 100%;
     background:
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(99, 102, 241, 0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(99, 102, 241, 0.40) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(139, 92, 246, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(99, 102, 241, 0.22) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -709,8 +759,8 @@ img {
 .ai-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(139, 92, 246, 0.35));
+    border: 1px solid rgba(99, 102, 241, 0.5);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -946,8 +996,8 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 400px;
+    height: 4px;
     background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
     z-index: 1;
 }
@@ -960,7 +1010,7 @@ img {
     overflow: hidden;
 }
 
-/* Subtle blue glow behind the section */
+/* Background glow behind the section */
 .tech-section::before {
     content: '';
     position: absolute;
@@ -970,9 +1020,9 @@ img {
     width: 120%;
     height: 100%;
     background:
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(46, 115, 174, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(59, 142, 210, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(46, 115, 174, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(46, 115, 174, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(59, 142, 210, 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(46, 115, 174, 0.20) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -989,8 +1039,8 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 400px;
+    height: 4px;
     background: linear-gradient(90deg, transparent, #2E73AE, transparent);
     z-index: 1;
 }
@@ -1004,8 +1054,8 @@ img {
 .tech-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(46, 115, 174, 0.2), rgba(59, 142, 210, 0.2));
-    border: 1px solid rgba(46, 115, 174, 0.3);
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.35), rgba(59, 142, 210, 0.35));
+    border: 1px solid rgba(46, 115, 174, 0.5);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -1119,7 +1169,7 @@ img {
     transform: translateY(-4px);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(46, 115, 174, 0.15);
+        0 0 24px rgba(46, 115, 174, 0.30);
 }
 
 .tech-phone-caption {
@@ -1137,7 +1187,7 @@ img {
     overflow: hidden;
 }
 
-/* Subtle brown glow behind the section */
+/* Background glow behind the section */
 .stat-section::before {
     content: '';
     position: absolute;
@@ -1147,9 +1197,9 @@ img {
     width: 120%;
     height: 100%;
     background:
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(177, 111, 66, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(196, 140, 90, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(177, 111, 66, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(177, 111, 66, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(196, 140, 90, 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(177, 111, 66, 0.20) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -1166,8 +1216,8 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 400px;
+    height: 4px;
     background: linear-gradient(90deg, transparent, #B16F42, transparent);
     z-index: 1;
 }
@@ -1181,8 +1231,8 @@ img {
 .stat-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(177, 111, 66, 0.2), rgba(196, 140, 90, 0.2));
-    border: 1px solid rgba(177, 111, 66, 0.3);
+    background: linear-gradient(135deg, rgba(177, 111, 66, 0.35), rgba(196, 140, 90, 0.35));
+    border: 1px solid rgba(177, 111, 66, 0.5);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -1296,7 +1346,7 @@ img {
     transform: translateY(-4px);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(177, 111, 66, 0.15);
+        0 0 24px rgba(177, 111, 66, 0.30);
 }
 
 .stat-phone-caption {
@@ -1314,7 +1364,7 @@ img {
     overflow: hidden;
 }
 
-/* Subtle white belt glow behind the section */
+/* Background glow behind the section */
 .social-section::before {
     content: '';
     position: absolute;
@@ -1324,9 +1374,9 @@ img {
     width: 120%;
     height: 100%;
     background:
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(147, 148, 157, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(168, 169, 178, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(147, 148, 157, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(147, 148, 157, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(168, 169, 178, 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(147, 148, 157, 0.20) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -1343,8 +1393,8 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 400px;
+    height: 4px;
     background: linear-gradient(90deg, transparent, #93949D, transparent);
     z-index: 1;
 }
@@ -1358,8 +1408,8 @@ img {
 .social-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(147, 148, 157, 0.2), rgba(168, 169, 178, 0.2));
-    border: 1px solid rgba(147, 148, 157, 0.3);
+    background: linear-gradient(135deg, rgba(147, 148, 157, 0.35), rgba(168, 169, 178, 0.35));
+    border: 1px solid rgba(147, 148, 157, 0.5);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -1473,7 +1523,7 @@ img {
     transform: translateY(-4px);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(147, 148, 157, 0.15);
+        0 0 24px rgba(147, 148, 157, 0.30);
 }
 
 .social-phone-caption {
@@ -1491,7 +1541,7 @@ img {
     overflow: hidden;
 }
 
-/* Subtle health green glow behind the section */
+/* Background glow behind the section */
 .health-section::before {
     content: '';
     position: absolute;
@@ -1501,9 +1551,9 @@ img {
     width: 120%;
     height: 100%;
     background:
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(46, 115, 174, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(66, 135, 194, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(46, 115, 174, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(46, 115, 174, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 20% 50%, rgba(66, 135, 194, 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 80% 60%, rgba(46, 115, 174, 0.20) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -1520,8 +1570,8 @@ img {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 400px;
+    height: 4px;
     background: linear-gradient(90deg, transparent, #2E73AE, transparent);
     z-index: 1;
 }
@@ -1535,8 +1585,8 @@ img {
 .health-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(46, 115, 174, 0.2), rgba(66, 135, 194, 0.2));
-    border: 1px solid rgba(46, 115, 174, 0.3);
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.35), rgba(66, 135, 194, 0.35));
+    border: 1px solid rgba(46, 115, 174, 0.5);
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -1647,7 +1697,7 @@ img {
     transform: translateY(-4px);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(46, 115, 174, 0.15);
+        0 0 24px rgba(46, 115, 174, 0.30);
 }
 
 .health-phone-caption {
@@ -2075,6 +2125,7 @@ body::after {
 }
 
 .nav, .hero, .section,
+.screenshot-showcase,
 .ai-section, .live-section, .tech-section,
 .stat-section, .social-section, .health-section,
 footer {
@@ -2115,6 +2166,7 @@ footer {
     padding: 20px 24px;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
+    border-left: 3px solid var(--section-accent, var(--color-accent));
     border-radius: var(--radius);
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.3s, box-shadow 0.3s;
@@ -2127,6 +2179,7 @@ footer {
 .accordion-trigger:hover {
     background-color: var(--color-bg-card-hover);
     border-color: var(--section-accent, var(--color-accent));
+    border-left: 3px solid var(--section-accent, var(--color-accent));
     box-shadow: 0 0 16px rgba(99, 102, 241, 0.08);
 }
 
@@ -2199,8 +2252,38 @@ footer {
     border-bottom-left-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
     padding: 40px 24px;
-    background: rgba(20, 20, 40, 0.2);
+    background: rgba(20, 20, 40, 0.3);
 }
+
+/* Section-specific accordion trigger tints */
+.ai-section .accordion-trigger { background: rgba(99, 102, 241, 0.12); }
+.ai-section .accordion-trigger:hover { background: rgba(99, 102, 241, 0.22); }
+.live-section .accordion-trigger { background: rgba(220, 38, 38, 0.12); }
+.live-section .accordion-trigger:hover { background: rgba(220, 38, 38, 0.22); }
+.tech-section .accordion-trigger { background: rgba(46, 115, 174, 0.12); }
+.tech-section .accordion-trigger:hover { background: rgba(46, 115, 174, 0.22); }
+.stat-section .accordion-trigger { background: rgba(177, 111, 66, 0.12); }
+.stat-section .accordion-trigger:hover { background: rgba(177, 111, 66, 0.22); }
+.social-section .accordion-trigger { background: rgba(147, 148, 157, 0.12); }
+.social-section .accordion-trigger:hover { background: rgba(147, 148, 157, 0.22); }
+.health-section .accordion-trigger { background: rgba(46, 115, 174, 0.12); }
+.health-section .accordion-trigger:hover { background: rgba(46, 115, 174, 0.22); }
+
+/* Section-specific expanded panel backgrounds */
+.ai-section .accordion-item[data-expanded="true"] .accordion-panel-inner { background: rgba(99, 102, 241, 0.10); border-radius: 12px; }
+.live-section .accordion-item[data-expanded="true"] .accordion-panel-inner { background: rgba(220, 38, 38, 0.10); border-radius: 12px; }
+.tech-section .accordion-item[data-expanded="true"] .accordion-panel-inner { background: rgba(46, 115, 174, 0.10); border-radius: 12px; }
+.stat-section .accordion-item[data-expanded="true"] .accordion-panel-inner { background: rgba(177, 111, 66, 0.10); border-radius: 12px; }
+.social-section .accordion-item[data-expanded="true"] .accordion-panel-inner { background: rgba(147, 148, 157, 0.10); border-radius: 12px; }
+.health-section .accordion-item[data-expanded="true"] .accordion-panel-inner { background: rgba(46, 115, 174, 0.10); border-radius: 12px; }
+
+/* Section-specific hover glow on accordion triggers */
+.ai-section .accordion-trigger:hover { box-shadow: 0 0 30px rgba(99, 102, 241, 0.25); }
+.live-section .accordion-trigger:hover { box-shadow: 0 0 30px rgba(220, 38, 38, 0.25); }
+.tech-section .accordion-trigger:hover { box-shadow: 0 0 30px rgba(46, 115, 174, 0.25); }
+.stat-section .accordion-trigger:hover { box-shadow: 0 0 30px rgba(177, 111, 66, 0.25); }
+.social-section .accordion-trigger:hover { box-shadow: 0 0 30px rgba(147, 148, 157, 0.25); }
+.health-section .accordion-trigger:hover { box-shadow: 0 0 30px rgba(46, 115, 174, 0.25); }
 
 /* Features inside accordion panels — remove bottom margin */
 .accordion-panel-inner .ai-feature,
@@ -2212,14 +2295,14 @@ footer {
     margin-bottom: 0;
 }
 
-/* First feature reduced margin when followed by accordion items */
-.accordion-section > .ai-feature:first-child,
-.accordion-section > .live-feature:first-child,
-.accordion-section > .tech-feature:first-child,
-.accordion-section > .stat-feature:first-child,
-.accordion-section > .social-feature:first-child,
-.accordion-section > .health-feature:first-child {
-    margin-bottom: 24px;
+/* Reduce bottom margin on Feature 01 when accordion items follow */
+.ai-section .container > .ai-feature,
+.live-section .container > .live-feature,
+.tech-section .container > .tech-feature,
+.stat-section .container > .stat-feature,
+.social-section .container > .social-feature,
+.health-section .container > .health-feature {
+    margin-bottom: 32px;
 }
 
 /* === Enhanced Section Header Typography === */
@@ -2349,7 +2432,21 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        padding: 120px 0 40px;
+        padding: 100px 0 32px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content .hero-icon {
+        margin: 0 auto 20px;
     }
 
     .hero h1 {
@@ -2358,13 +2455,12 @@ footer {
 
     .hero .tagline {
         font-size: 1.05rem;
+        margin: 0 auto 28px;
+        max-width: 520px;
     }
 
-    .hero-icon {
-        width: 96px;
-        height: 96px;
-        border-radius: 22px;
-        margin-bottom: 24px;
+    .hero-screenshot-grid {
+        gap: 8px;
     }
 
     .features-grid {
@@ -2633,12 +2729,32 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 88px 0 24px;
+    }
+
+    .hero-grid {
+        gap: 24px;
+    }
+
     .hero h1 {
         font-size: 1.85rem;
     }
 
     .hero .tagline {
         font-size: 0.95rem;
+    }
+
+    .hero-screenshot-grid {
+        gap: 6px;
+    }
+
+    .hero-screenshot-grid img {
+        border-radius: 8px;
+    }
+
+    .hero-screenshots-label {
+        font-size: 0.7rem;
     }
 
     .nav-links {
@@ -2651,20 +2767,6 @@ footer {
 
     .features-grid {
         grid-template-columns: 1fr;
-    }
-
-    .screenshot-scroll {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        padding: 20px 12px 32px;
-    }
-
-    .screenshot-card img {
-        max-width: 180px;
-    }
-
-    .screenshot-card .caption {
-        font-size: 0.75rem;
     }
 
     .template-box {

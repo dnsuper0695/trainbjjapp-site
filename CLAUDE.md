@@ -21,7 +21,7 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 | `terms.html` | Terms of service |
 | `ai-feedback.html` | AI feedback/reporting page |
 | `styles.css` | All styles (single file) |
-| `script.js` | Accordion toggle, scroll animations, scroll progress bar |
+| `script.js` | Accordion toggle, scroll animations, scroll progress bar, parallax glows |
 | `CNAME` | GitHub Pages custom domain config |
 | `images/` | All screenshots and assets |
 
@@ -59,6 +59,70 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 | `--color-success` | `#22c55e` | Success states |
 | `--max-width` | `1080px` | Container max width |
 | `--radius` | `12px` | Default border radius |
+
+#### Glass Design Tokens (2026 Redesign)
+
+| Variable | Value | Usage |
+|----------|-------|-------|
+| `--glass-bg` | `rgba(255, 255, 255, 0.04)` | Glass card backgrounds |
+| `--glass-bg-hover` | `rgba(255, 255, 255, 0.07)` | Glass hover state |
+| `--glass-border` | `rgba(255, 255, 255, 0.08)` | Glass card borders |
+| `--glass-border-hover` | `rgba(255, 255, 255, 0.15)` | Glass border hover |
+| `--glass-blur` | `16px` | Backdrop blur amount |
+| `--glass-saturate` | `180%` | Backdrop saturate amount |
+| `--glass-shadow` | Multi-layer | Glass card shadow (8px blur + 1px white ring) |
+| `--glass-shadow-hover` | Multi-layer | Enhanced hover shadow (16px blur + brighter ring) |
+
+**Glass Card Pattern** (applied to feature cards, pricing cards, accordion triggers/panels, ai-steps):
+```css
+background: var(--glass-bg);
+backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+-webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+border: 1px solid var(--glass-border);
+box-shadow: var(--glass-shadow);
+```
+
+### Ambient Mesh Gradient
+
+The `body` has 3 overlapping radial gradients with `background-attachment: fixed` creating a subtle ambient glow across the page (indigo, purple, blue).
+
+### Phone Frame Component
+
+CSS-only device mockup wrapping all feature section screenshots (~27 images). Hero screenshots use glass borders instead.
+
+| Class | Usage | Padding | Border Radius |
+|-------|-------|---------|---------------|
+| `.phone-frame` | Standard phone bezel | 12px | 36px outer, 24px inner |
+| `.phone-frame.phone-frame-sm` | Scanner grid (smaller) | 8px | 28px outer, 20px inner |
+
+**Features:**
+- Gradient bezel: `linear-gradient(145deg, #2a2a3e, #1a1a2e, #2a2a3e)`
+- Dynamic Island notch via `::before` pseudo-element
+- Float animation: `phoneFloat` (4s infinite) when parent has `.is-visible`
+- Section-specific hover glow: `box-shadow` uses section accent color (e.g. indigo for AI, red for Live)
+- 3D hover: `translateY(-8px) rotateX(2deg)` on hover
+
+**HTML pattern:**
+```html
+<div class="phone-frame">
+    <img src="images/screenshot.png" alt="..." width="220" loading="lazy" decoding="async">
+</div>
+```
+
+### CSS Animations
+
+| Animation | Duration | Element | Effect |
+|-----------|----------|---------|--------|
+| `heroGlow` | 8s alternate | `.hero::before` | Pulsing radial gradient orb behind hero |
+| `iconGlow` | 4s alternate | `.hero-icon` | Breathing glow on app icon |
+| `ctaPulse` | 3s infinite | `.app-store-btn` | Expanding ring glow on CTA button |
+| `phoneFloat` | 4s infinite | `.phone-frame` | Gentle Y-axis float on visible phones |
+
+All animations disabled under `@media (prefers-reduced-motion: reduce)`.
+
+### Parallax Background Glows
+
+JS-driven parallax on section `::before` glow layers. On scroll, each section gets a `--parallax-y` CSS custom property that shifts the glow subtly. Disabled for reduced-motion users (both JS and CSS).
 
 ### Responsive Breakpoints
 
@@ -105,7 +169,9 @@ Feature detail sections follow a consistent pattern with themed accents:
 - Badge: `rgba(46, 115, 174, 0.2)` background, `#7EC8E3` text
 - Background glow: `rgba(46, 115, 174, 0.08)` radial gradients
 - Feature numbers: `#2E73AE`
-- Divider line: `#2E73AE`
+- Divider: `#2E73AE`
+
+**Section Dividers** are 80px soft gradient mesh zones (not thin lines). Each uses the section's accent color fading from transparent → accent 40% → accent 60% → transparent via `::after` pseudo-element.
 
 ### Feature Detail Section Structure
 
@@ -192,7 +258,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=9`, `script.js?v=1`
+**Current version**: `styles.css?v=10`, `script.js?v=2`
 
 **How to bump**: Increment the number (e.g. `?v=9` → `?v=10`) in every `<link>` and `<script>` tag across all HTML files.
 

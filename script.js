@@ -99,6 +99,43 @@
     }
 
     // ================================
+    // 4. PARALLAX BACKGROUND GLOWS
+    // ================================
+
+    function initParallax() {
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) return;
+
+        var sections = document.querySelectorAll('.ai-section, .live-section, .tech-section, .stat-section, .social-section, .health-section');
+        if (!sections.length) return;
+
+        var ticking = false;
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    var scrollY = window.scrollY;
+                    var viewportH = window.innerHeight;
+
+                    sections.forEach(function (section) {
+                        var rect = section.getBoundingClientRect();
+                        // Only process sections near the viewport
+                        if (rect.bottom < -200 || rect.top > viewportH + 200) return;
+
+                        // Calculate parallax offset based on section position
+                        var centerOffset = (rect.top + rect.height / 2 - viewportH / 2) / viewportH;
+                        var parallaxY = Math.round(centerOffset * -30);
+                        section.style.setProperty('--parallax-y', parallaxY + 'px');
+                    });
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    // ================================
     // INIT
     // ================================
 
@@ -107,11 +144,13 @@
             initAccordions();
             initScrollAnimations();
             initScrollProgress();
+            initParallax();
         });
     } else {
         initAccordions();
         initScrollAnimations();
         initScrollProgress();
+        initParallax();
     }
 
 })();

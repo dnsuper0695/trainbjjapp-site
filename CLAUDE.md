@@ -15,7 +15,7 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Main landing page (hero, screenshots, features, AI section, Live Session section, pricing, contact) |
+| `index.html` | Main landing page (hero, features, 6 detail sections, pricing, contact) |
 | `faq.html` | FAQ page |
 | `privacy.html` | Privacy policy |
 | `terms.html` | Terms of service |
@@ -27,19 +27,18 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 
 ## Page Sections (index.html, top to bottom)
 
-1. **Nav** — Logo + links (FAQ, Features [dropdown: AI Features, Live Session, Technique Library], AI Feedback, Support)
-2. **Hero** — App icon, tagline, App Store button
-3. **Screenshot Showcase** ("As Seen in the App Store") — 3x2 grid of app screenshots
-4. **Features** ("Everything You Need to Level Up") — 6 feature cards (all clickable: AI → #ai, Live → #live-session, Techniques → #techniques, Analytics → #analytics, Social → #social, Health → #health)
-5. **AI Features** (#ai) — Indigo/purple themed section. Feature 01 (Coach) always expanded; Features 02-03 (Scanner, Insights) in accordion
-6. **Live Session** (#live-session) — Red themed section. Feature 01 (Timer) always expanded; Features 02-04 (Controls, Save, Lock Screen) in accordion
-7. **Technique Library** (#techniques) — Blue belt themed section. Feature 01 (Built-In Library) always expanded; Features 02-04 (History, Instructionals, Custom) in accordion
-8. **Advanced Analytics** (#analytics) — Brown belt themed section. Feature 01 (Performance Summary) always expanded; Features 02-04 (Position, Trends, Dashboard) in accordion
-9. **Social Feed & Stack Up** (#social) — White belt themed section. Feature 01 (Social Feed) always expanded; Features 02-04 (Stack Up, Metrics, Shareable Cards) in accordion
-10. **Health Metrics & Data Import** (#health) — Blue belt themed section. Feature 01 (Health Data) always expanded; Features 02-04 (Detection, Import, HealthKit Matching) in accordion
-11. **Pricing** — Free vs Premium comparison
-12. **Contact/Support** — Email link
-13. **Footer** — Copyright, legal links
+1. **Nav** — Fixed at top (`position: fixed; z-index: 100`), glass background, scroll progress bar below. Links: FAQ, Features [dropdown: AI Features, Live Session, Technique Library, Advanced Analytics, Social & Stack Up, Health & Import], AI Feedback, Support
+2. **Hero** — Two-column grid: left (app icon, tagline, App Store button), right ("As Seen in the App Store" 3x2 screenshot grid)
+3. **Features** ("Everything You Need to Level Up") — 6 belt-themed feature cards (all clickable: AI → #ai, Live → #live-session, Techniques → #techniques, Analytics → #analytics, Social → #social, Health → #health)
+4. **AI Features** (#ai) — Indigo/purple themed section. Feature 01 (Coach) always expanded; Features 02-03 (Scanner, Insights) in accordion
+5. **Live Session** (#live-session) — Red themed section. Feature 01 (Timer) always expanded; Features 02-04 (Controls, Save, Lock Screen) in accordion
+6. **Technique Library** (#techniques) — Blue belt themed section. Feature 01 (Built-In Library) always expanded; Features 02-04 (History, Instructionals, Custom) in accordion
+7. **Advanced Analytics** (#analytics) — Brown belt themed section. Feature 01 (Performance Summary) always expanded; Features 02-04 (Position, Trends, Dashboard) in accordion
+8. **Social Feed & Stack Up** (#social) — White belt themed section. Feature 01 (Social Feed) always expanded; Features 02-04 (Stack Up, Metrics, Shareable Cards) in accordion
+9. **Health Metrics & Data Import** (#health) — Blue belt themed section. Feature 01 (Health Data) always expanded; Features 02-04 (Detection, Import, HealthKit Matching) in accordion
+10. **Pricing** — Free vs Premium comparison
+11. **Contact/Support** — Email link
+12. **Footer** — Copyright, legal links
 
 ## CSS Architecture
 
@@ -49,11 +48,15 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 |----------|-------|-------|
 | `--color-bg` | `#0a0a14` | Page background |
 | `--color-bg-card` | `#141428` | Card backgrounds |
+| `--color-bg-card-hover` | `#1c1c38` | Card hover backgrounds |
 | `--color-text` | `#e8e8ec` | Primary text |
 | `--color-text-muted` | `#9898a8` | Secondary text |
 | `--color-accent` | `#6366f1` | Indigo accent (buttons, links) |
+| `--color-accent-hover` | `#4f46e5` | Accent hover state |
 | `--color-accent-glow` | `rgba(99, 102, 241, 0.3)` | Hover glow effects |
+| `--color-accent-subtle` | `rgba(99, 102, 241, 0.12)` | Subtle accent tints |
 | `--color-border` | `#1e1e36` | Card/image borders |
+| `--color-success` | `#22c55e` | Success states |
 | `--max-width` | `1080px` | Container max width |
 | `--radius` | `12px` | Default border radius |
 
@@ -134,9 +137,19 @@ Odd features: text left, screenshot right (default grid).
 Even features: text right, screenshot left (`.{prefix}-feature-reverse` with `direction: rtl`).
 At tablet breakpoint: `direction: ltr` restores natural order (text above screenshot).
 
-### Clickable Feature Cards
+### Belt-Themed Feature Cards
 
-Feature cards that link to detail sections use `<a>` tags with class `feature-card feature-card-link`.
+Feature cards use `<a>` tags with class `feature-card feature-card-link feature-card-{prefix}`. Each card has a themed border, gradient background, icon glow, hover effects, and colored title matching its section's BJJ belt color.
+
+| Card Class | Theme | Border Color | Title Color |
+|------------|-------|-------------|-------------|
+| `.feature-card-ai` | Indigo/purple | `rgba(99, 102, 241, 0.25)` | `#a5b4fc` |
+| `.feature-card-live` | Red | `rgba(220, 38, 38, 0.25)` | `#fca5a5` |
+| `.feature-card-tech` | Blue belt | `rgba(46, 115, 174, 0.25)` | `#7EC8E3` |
+| `.feature-card-stat` | Brown belt | `rgba(177, 111, 66, 0.25)` | `#D4A574` |
+| `.feature-card-social` | White belt/grey | `rgba(147, 148, 157, 0.25)` | `#C8C9CE` |
+| `.feature-card-health` | Blue belt | `rgba(46, 115, 174, 0.25)` | `#7EC8E3` |
+
 Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#live-session`, 150+ Technique Library → `#techniques`, Advanced Analytics → `#analytics`, Social Feed & Training Partners → `#social`, Health Metrics & Data Import → `#health`.
 
 ## Image Conventions
@@ -168,15 +181,32 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 | Health phones | `220` | `220px` |
 | Hero showcase | (none) | `260px` |
 
-### Cache Busting
+### Cache Busting (REQUIRED after CSS/JS changes)
 
-When replacing images with the same filename, add `?v=N` query string to force browsers to fetch the new version:
+**CRITICAL**: After ANY change to `styles.css` or `script.js`, you MUST bump the `?v=N` cache buster query string in ALL HTML files that reference the changed file. Browsers aggressively cache these files — without bumping, users will not see changes on the live site.
+
+**Files to update** (all 5 HTML files reference `styles.css`):
+- `index.html`
+- `faq.html`
+- `privacy.html`
+- `terms.html`
+- `ai-feedback.html`
+
+**Current version**: `styles.css?v=9`, `script.js?v=1`
+
+**How to bump**: Increment the number (e.g. `?v=9` → `?v=10`) in every `<link>` and `<script>` tag across all HTML files.
+
+**For images**: When replacing images with the same filename, add `?v=N` to the `<img>` src:
 ```html
 <img src="images/ai-scan-1.png?v=3" ...>
 ```
 
 ## Nav Bar
 
+- **Fixed positioning**: `position: fixed; top: 0; z-index: 100` with glass background (`rgba(10, 10, 20, 0.88)` + `backdrop-filter: blur(16px)`)
+- **Height**: 64px (set on `.nav .container`)
+- **Bottom border**: `1px solid var(--color-border)` — scroll progress bar runs along this line
+- **IMPORTANT**: The gi-texture overlay rule (`.hero, .section, ...`) must NOT include `.nav` — it sets `position: relative; z-index: 1` which would override the fixed positioning
 - Links use `white-space: nowrap` to prevent wrapping
 - At 480px: font shrinks to `0.72rem`, gap to `8px`
 - **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features", "Live Session", "Technique Library", "Advanced Analytics", "Social & Stack Up", and "Health & Import"
@@ -203,26 +233,46 @@ Feature sections use a collapsible accordion pattern to reduce scroll depth. Fea
 
 ### Scroll Progress Bar
 
-Fixed bar below nav (`top: 64px`, `height: 3px`) with gradient from accent → purple → red. Width driven by JS scroll percentage via `requestAnimationFrame`.
+Fixed bar aligned with nav bottom border (`top: 63px`, `height: 2px`, `z-index: 101`) — overlaps the nav's `border-bottom` so the gradient replaces the subtle border line as the user scrolls. Gradient from accent → purple → red (`var(--color-accent)` → `#8b5cf6` → `#dc2626`). Width driven by JS scroll percentage via `requestAnimationFrame`. Has `box-shadow: 0 0 8px var(--color-accent-glow)` for a subtle glow effect.
 
 ### Scroll Fade-In Animations
 
 Elements with `.fade-in-section` class start at `opacity: 0; transform: translateY(24px)` and transition to visible when they enter the viewport (IntersectionObserver, fires once). Feature cards and screenshot cards have staggered delays (80ms and 100ms increments). Respects `prefers-reduced-motion`.
 
+### Smooth Scrolling
+
+`html { scroll-behavior: smooth; }` for anchor link navigation (nav dropdown links, feature card links).
+
 ### BJJ Texture Overlay
 
-Subtle gi-weave pattern via `body::after` using `repeating-linear-gradient` at 45°/-45° with `opacity: 0.03`. All content has `position: relative; z-index: 1` to sit above the texture.
+Subtle gi-weave pattern via `body::after` using `repeating-linear-gradient` at 45°/-45° with `opacity: 0.03`. All content has `position: relative; z-index: 1` to sit above the texture. **IMPORTANT**: Do NOT include `.nav` in the z-index rule — it would override the nav's `position: fixed`.
+
+### `prefers-reduced-motion`
+
+All transitions and animations are disabled. Fade-in elements are immediately visible. Screenshot hover effects are suppressed.
 
 ### Adding a New Feature Detail Section
 
-1. Add clickable `<a>` card in features grid (class `feature-card feature-card-link`)
-2. Add section HTML between existing sections (follow the structure above)
-3. Feature 01 is always expanded; wrap Features 02+ in accordion items (see structure above)
-4. Add CSS with themed prefix (badge, glow, numbers, divider) and set `--section-accent` custom property
-5. Add tablet breakpoint rules (single column, `direction: ltr`, accordion responsive)
-6. Add mobile breakpoint rules (smaller fonts, tighter spacing)
-7. Add to Features dropdown in nav (`ul.nav-dropdown-menu`)
-8. Add `fade-in-section` class to the section element
+1. Add clickable `<a>` card in features grid (class `feature-card feature-card-link feature-card-{prefix}`)
+2. Add belt-themed CSS for the feature card (border, gradient background, icon glow, hover, title color)
+3. Add section HTML between existing sections (follow the structure above)
+4. Feature 01 is always expanded; wrap Features 02+ in accordion items (see structure above)
+5. Add CSS with themed prefix (badge, glow, numbers, divider) and set `--section-accent` custom property
+6. Add accordion trigger/panel themed CSS (background tint, hover glow, expanded panel background)
+7. Add tablet breakpoint rules (single column, `direction: ltr`, accordion responsive)
+8. Add mobile breakpoint rules (smaller fonts, tighter spacing)
+9. Add to Features dropdown in nav (`ul.nav-dropdown-menu`)
+10. Add `fade-in-section` class to the section element
+11. Add section to gi-texture z-index rule (`.hero, .section, ...`)
+12. **Bump CSS cache buster** `?v=N` in all 5 HTML files
+
+### Hero Layout
+
+Two-column grid (`.hero-grid`: `1fr 1.4fr`) with left-aligned content and right screenshot showcase:
+- **Left** (`.hero-content`): App icon (100px, rounded 24px with glow), gradient `h1`, tagline, App Store button
+- **Right** (`.hero-screenshots`): "As Seen in the App Store" label + 3x2 screenshot grid (`.hero-screenshot-grid`) + italic subtitle
+- At 768px: collapses to single column, content centers
+- Hero `h1` uses gradient text: `linear-gradient(135deg, #ffffff 0%, #c4c4d4 50%, #8888a8 100%)`
 
 ### Screenshot Grid Layouts
 

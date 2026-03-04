@@ -383,8 +383,6 @@ img {
 }
 
 .feature-card:hover {
-    background-color: var(--color-bg-card-hover);
-    border-color: var(--color-accent);
     transform: translateY(-2px);
 }
 
@@ -421,6 +419,103 @@ img {
     font-size: 0.9rem;
     line-height: 1.6;
 }
+
+/* Belt-Themed Feature Cards */
+/* AI — Indigo/Purple */
+.feature-card-ai {
+    border-color: rgba(99, 102, 241, 0.25);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, var(--color-bg-card) 60%);
+}
+.feature-card-ai .feature-icon {
+    background: rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
+}
+.feature-card-ai:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.14) 0%, var(--color-bg-card-hover) 60%);
+}
+.feature-card-ai h3 { color: #a5b4fc; }
+
+/* Live Session — Red */
+.feature-card-live {
+    border-color: rgba(220, 38, 38, 0.25);
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, var(--color-bg-card) 60%);
+}
+.feature-card-live .feature-icon {
+    background: rgba(220, 38, 38, 0.2);
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.15);
+}
+.feature-card-live:hover {
+    border-color: rgba(220, 38, 38, 0.5);
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.2);
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.14) 0%, var(--color-bg-card-hover) 60%);
+}
+.feature-card-live h3 { color: #fca5a5; }
+
+/* Technique Library — Blue Belt */
+.feature-card-tech {
+    border-color: rgba(46, 115, 174, 0.25);
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.08) 0%, var(--color-bg-card) 60%);
+}
+.feature-card-tech .feature-icon {
+    background: rgba(46, 115, 174, 0.2);
+    box-shadow: 0 0 12px rgba(46, 115, 174, 0.15);
+}
+.feature-card-tech:hover {
+    border-color: rgba(46, 115, 174, 0.5);
+    box-shadow: 0 4px 20px rgba(46, 115, 174, 0.2);
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.14) 0%, var(--color-bg-card-hover) 60%);
+}
+.feature-card-tech h3 { color: #7EC8E3; }
+
+/* Advanced Analytics — Brown Belt */
+.feature-card-stat {
+    border-color: rgba(177, 111, 66, 0.25);
+    background: linear-gradient(135deg, rgba(177, 111, 66, 0.08) 0%, var(--color-bg-card) 60%);
+}
+.feature-card-stat .feature-icon {
+    background: rgba(177, 111, 66, 0.2);
+    box-shadow: 0 0 12px rgba(177, 111, 66, 0.15);
+}
+.feature-card-stat:hover {
+    border-color: rgba(177, 111, 66, 0.5);
+    box-shadow: 0 4px 20px rgba(177, 111, 66, 0.2);
+    background: linear-gradient(135deg, rgba(177, 111, 66, 0.14) 0%, var(--color-bg-card-hover) 60%);
+}
+.feature-card-stat h3 { color: #D4A574; }
+
+/* Social Feed — White Belt/Grey */
+.feature-card-social {
+    border-color: rgba(147, 148, 157, 0.25);
+    background: linear-gradient(135deg, rgba(147, 148, 157, 0.08) 0%, var(--color-bg-card) 60%);
+}
+.feature-card-social .feature-icon {
+    background: rgba(147, 148, 157, 0.2);
+    box-shadow: 0 0 12px rgba(147, 148, 157, 0.15);
+}
+.feature-card-social:hover {
+    border-color: rgba(147, 148, 157, 0.5);
+    box-shadow: 0 4px 20px rgba(147, 148, 157, 0.2);
+    background: linear-gradient(135deg, rgba(147, 148, 157, 0.14) 0%, var(--color-bg-card-hover) 60%);
+}
+.feature-card-social h3 { color: #C8C9CE; }
+
+/* Health Metrics — Blue Belt */
+.feature-card-health {
+    border-color: rgba(46, 115, 174, 0.25);
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.08) 0%, var(--color-bg-card) 60%);
+}
+.feature-card-health .feature-icon {
+    background: rgba(46, 115, 174, 0.2);
+    box-shadow: 0 0 12px rgba(46, 115, 174, 0.15);
+}
+.feature-card-health:hover {
+    border-color: rgba(46, 115, 174, 0.5);
+    box-shadow: 0 4px 20px rgba(46, 115, 174, 0.2);
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.14) 0%, var(--color-bg-card-hover) 60%);
+}
+.feature-card-health h3 { color: #7EC8E3; }
 
 /* Pricing Comparison */
 .pricing-grid {

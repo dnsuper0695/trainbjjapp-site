@@ -1903,22 +1903,48 @@ img {
 .health-phone {
     max-width: 220px;
     text-align: center;
+    margin: 0 auto;
+}
+
+/* Floating animation for Health phones */
+@keyframes health-phone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 .health-phone img {
     width: 100%;
     max-width: 220px;
+    height: auto;
     border-radius: 20px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 3px solid rgba(46, 115, 174, 0.4);
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(46, 115, 174, 0.3), rgba(126, 200, 227, 0.15), rgba(46, 115, 174, 0.3));
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(46, 115, 174, 0.25),
+        0 0 40px rgba(46, 115, 174, 0.1);
+    transition: box-shadow 0.3s, border-color 0.3s;
+    animation: health-phone-float 4s ease-in-out infinite;
+}
+
+/* Stagger the 3 Health accordion phones */
+.health-section .accordion-item:nth-child(1) .health-phone img {
+    animation-delay: -1s;
+}
+.health-section .accordion-item:nth-child(2) .health-phone img {
+    animation-delay: -2s;
+}
+.health-section .accordion-item:nth-child(3) .health-phone img {
+    animation-delay: -3s;
 }
 
 .health-phone img:hover {
-    transform: translateY(-4px);
+    border-color: rgba(46, 115, 174, 0.6);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(46, 115, 174, 0.30);
+        0 0 30px rgba(46, 115, 174, 0.4),
+        0 0 60px rgba(46, 115, 174, 0.15);
 }
 
 .health-phone-caption {
@@ -2654,7 +2680,8 @@ footer {
     .live-phone img,
     .tech-phone img,
     .stat-phone img,
-    .social-phone img {
+    .social-phone img,
+    .health-phone img {
         animation: none;
     }
 }

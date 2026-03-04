@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=16`, `script.js?v=1`
+**Current version**: `styles.css?v=17`, `script.js?v=1`
 
 **How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
@@ -293,7 +293,7 @@ Original screenshots are stored in `~/Documents/Developer/Screenshots/Website Sc
 - `AdvancedAnalytics/OriginalScreenshots/` — Raw simulator screenshots for Advanced Analytics section (01.png through 04.png). Clean simulator captures without bezels or captions.
 - `AdvancedAnalytics/` — Processed versions with bezels and captions added
 - `Social_StackUp/OriginalScreenshots/` — Raw simulator screenshots for Social Feed & Stack Up section (01.png through 04.png). Clean simulator captures without bezels or captions.
-- `HealthMetrics/` — Health Metrics & Data Import screenshots (`01.png` through `04.png`)
+- `HealthMetrics/OriginalScreenshots/` — Raw simulator screenshots for Health Metrics & Data Import section (01.png through 04.png). Clean simulator captures without bezels or captions.
 
 Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and **always bump the `?v=N` cache buster** on the `<img>` tags in `index.html`.
 
@@ -310,6 +310,8 @@ Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-sessi
 **Advanced Analytics section** (4 screenshots): Uses raw simulator screenshots from `AdvancedAnalytics/OriginalScreenshots/` with CSS-based phone case effect (brown belt gradient border + padding + floating animation). No bezel or dynamic island processing needed.
 
 **Social Feed & Stack Up section** (4 screenshots): Uses raw simulator screenshots from `Social_StackUp/OriginalScreenshots/` with CSS-based phone case effect (grey/silver gradient border + padding + floating animation). No bezel or dynamic island processing needed.
+
+**Health Metrics & Data Import section** (4 screenshots): Uses raw simulator screenshots from `HealthMetrics/OriginalScreenshots/` with CSS-based phone case effect (blue belt gradient border + padding + floating animation). No bezel or dynamic island processing needed.
 
 ### AI Screenshot Animation
 
@@ -354,6 +356,15 @@ All Social section phone screenshots (`.social-phone img`) have:
 - **Staggered timing**: Accordion phones staggered by -1s, -2s, -3s via `.social-section .accordion-item:nth-child(N)`
 - **Phone case border**: 3px solid `rgba(147, 148, 157, 0.4)` with 3px padding and grey/silver gradient background
 - **Glow shadow**: Layered grey `box-shadow` (persistent + enhanced on hover)
+- **Reduced motion**: Animation disabled via `prefers-reduced-motion`
+
+### Health Metrics & Data Import Screenshot Animation
+
+All Health section phone screenshots (`.health-phone img`) have:
+- **Floating animation**: `@keyframes health-phone-float` — 8px vertical bob, 4s cycle, `ease-in-out`
+- **Staggered timing**: Accordion phones staggered by -1s, -2s, -3s via `.health-section .accordion-item:nth-child(N)`
+- **Phone case border**: 3px solid `rgba(46, 115, 174, 0.4)` with 3px padding and blue belt gradient background
+- **Glow shadow**: Layered blue belt `box-shadow` (persistent + enhanced on hover)
 - **Reduced motion**: Animation disabled via `prefers-reduced-motion`
 
 ## Contact Info

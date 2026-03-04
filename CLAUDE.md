@@ -292,6 +292,10 @@ Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Websit
 
 Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.
 
+### Screenshot Processing
+
+All 33 screenshot PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
+
 ## Contact Info
 
 - Support: support@trainbjjapp.com

@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=10`, `script.js?v=1`
+**Current version**: `styles.css?v=11`, `script.js?v=1`
 
 **How to bump**: Increment the number (e.g. `?v=9` → `?v=10`) in every `<link>` and `<script>` tag across all HTML files.
 

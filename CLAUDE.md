@@ -21,6 +21,7 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 | `terms.html` | Terms of service |
 | `ai-feedback.html` | AI feedback/reporting page |
 | `styles.css` | All styles (single file) |
+| `script.js` | Accordion toggle, scroll animations, scroll progress bar |
 | `CNAME` | GitHub Pages custom domain config |
 | `images/` | All screenshots and assets |
 
@@ -28,14 +29,14 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 
 1. **Nav** — Logo + links (FAQ, Features [dropdown: AI Features, Live Session, Technique Library], AI Feedback, Support)
 2. **Hero** — App icon, tagline, App Store button
-3. **Screenshot Showcase** ("See It in Action") — 3x2 grid of app screenshots
-4. **Features** ("Everything You Need to Level Up") — 6 feature cards (5 are clickable: AI → #ai, Live → #live-session, Techniques → #techniques, Analytics → #analytics, Social → #social)
-5. **AI Features** (#ai) — Indigo/purple themed section with 3 sub-features (Coach, Scanner, Insights)
-6. **Live Session** (#live-session) — Red themed section with 4 sub-features (Timer, Controls, Save, Lock Screen)
-7. **Technique Library** (#techniques) — Blue belt themed section with 4 sub-features (Built-In Library, Training History, Instructional Links, Custom Techniques)
-8. **Advanced Analytics** (#analytics) — Brown belt themed section with 4 sub-features (Performance Summary, Position Efficiency, Training Trends, Full Profile Dashboard)
-9. **Social Feed & Stack Up** (#social) — White belt themed section with 4 sub-features (Social Feed, Stack Up Comparisons, Deep Metric Breakdown, Shareable Session Cards)
-10. **Health Metrics & Data Import** (#health) — Blue belt themed section with 4 sub-features (Health Data on Every Session, Auto-Detection, Import Health History, HealthKit Matching)
+3. **Screenshot Showcase** ("As Seen in the App Store") — 3x2 grid of app screenshots
+4. **Features** ("Everything You Need to Level Up") — 6 feature cards (all clickable: AI → #ai, Live → #live-session, Techniques → #techniques, Analytics → #analytics, Social → #social, Health → #health)
+5. **AI Features** (#ai) — Indigo/purple themed section. Feature 01 (Coach) always expanded; Features 02-03 (Scanner, Insights) in accordion
+6. **Live Session** (#live-session) — Red themed section. Feature 01 (Timer) always expanded; Features 02-04 (Controls, Save, Lock Screen) in accordion
+7. **Technique Library** (#techniques) — Blue belt themed section. Feature 01 (Built-In Library) always expanded; Features 02-04 (History, Instructionals, Custom) in accordion
+8. **Advanced Analytics** (#analytics) — Brown belt themed section. Feature 01 (Performance Summary) always expanded; Features 02-04 (Position, Trends, Dashboard) in accordion
+9. **Social Feed & Stack Up** (#social) — White belt themed section. Feature 01 (Social Feed) always expanded; Features 02-04 (Stack Up, Metrics, Shareable Cards) in accordion
+10. **Health Metrics & Data Import** (#health) — Blue belt themed section. Feature 01 (Health Data) always expanded; Features 02-04 (Detection, Import, HealthKit Matching) in accordion
 11. **Pricing** — Free vs Premium comparison
 12. **Contact/Support** — Email link
 13. **Footer** — Copyright, legal links
@@ -105,15 +106,24 @@ Feature detail sections follow a consistent pattern with themed accents:
 
 ### Feature Detail Section Structure
 
-Each section follows this layout:
+Each section follows this layout. Feature 01 is always expanded; Features 02+ are wrapped in accordion items:
 ```
-section.{prefix}-section
+section.{prefix}-section.fade-in-section
   div.container
-    div.{prefix}-header          — Badge + title + subtitle (centered)
-    div.{prefix}-feature         — Grid: 1.2fr content | 1fr screenshots
+    div.{prefix}-header          — Badge + title + subtitle (centered, gradient text)
+
+    div.{prefix}-feature         — Feature 01: always visible, Grid: 1.2fr content | 1fr screenshots
       div.{prefix}-feature-content  — Number + h3 + lead text + bullet list
       div.{prefix}-feature-screenshots — Phone image(s) with caption
-    div.{prefix}-feature.{prefix}-feature-reverse  — Alternating sides via direction:rtl
+
+    div.accordion-item[data-expanded="false"]        — Features 02+ wrapped in accordion
+      button.accordion-trigger[aria-expanded="false"]
+        span.accordion-number "02"
+        span.accordion-title "Feature Title"
+        svg.accordion-chevron
+      div.accordion-panel[role="region"]
+        div.accordion-panel-inner
+          div.{prefix}-feature       — Existing feature content (unchanged)
 ```
 
 CSS class prefix: `ai-` for AI section, `live-` for Live Session section, `tech-` for Technique Library section, `stat-` for Advanced Analytics section, `social-` for Social Feed & Stack Up section, `health-` for Health Metrics & Data Import section.
@@ -176,14 +186,43 @@ When replacing images with the same filename, add `?v=N` query string to force b
 
 ## Key Patterns
 
+### Accordion System
+
+Feature sections use a collapsible accordion pattern to reduce scroll depth. Feature 01 is always visible; Features 02+ are collapsed by default.
+
+**Animation**: CSS Grid `grid-template-rows: 0fr → 1fr` with `transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1)`. The `.accordion-panel-inner` has `min-height: 0` to allow collapsing to zero height.
+
+**State**: `data-expanded` attribute on `.accordion-item` drives CSS state. `aria-expanded` on `.accordion-trigger` for accessibility.
+
+**JS behavior** (`script.js`):
+- Click handler toggles `data-expanded` and `aria-expanded`
+- Multiple items can be open simultaneously
+- On page load, checks `window.location.hash` and auto-expands any accordion containing the target ID
+
+**Section accent colors**: Each section sets `--section-accent` CSS custom property, used by accordion trigger borders and numbers.
+
+### Scroll Progress Bar
+
+Fixed bar below nav (`top: 64px`, `height: 3px`) with gradient from accent → purple → red. Width driven by JS scroll percentage via `requestAnimationFrame`.
+
+### Scroll Fade-In Animations
+
+Elements with `.fade-in-section` class start at `opacity: 0; transform: translateY(24px)` and transition to visible when they enter the viewport (IntersectionObserver, fires once). Feature cards and screenshot cards have staggered delays (80ms and 100ms increments). Respects `prefers-reduced-motion`.
+
+### BJJ Texture Overlay
+
+Subtle gi-weave pattern via `body::after` using `repeating-linear-gradient` at 45°/-45° with `opacity: 0.03`. All content has `position: relative; z-index: 1` to sit above the texture.
+
 ### Adding a New Feature Detail Section
 
 1. Add clickable `<a>` card in features grid (class `feature-card feature-card-link`)
 2. Add section HTML between existing sections (follow the structure above)
-3. Add CSS with themed prefix (badge, glow, numbers, divider)
-4. Add tablet breakpoint rules (single column, `direction: ltr`)
-5. Add mobile breakpoint rules (smaller fonts, tighter spacing)
-6. Add to Features dropdown in nav (`ul.nav-dropdown-menu`)
+3. Feature 01 is always expanded; wrap Features 02+ in accordion items (see structure above)
+4. Add CSS with themed prefix (badge, glow, numbers, divider) and set `--section-accent` custom property
+5. Add tablet breakpoint rules (single column, `direction: ltr`, accordion responsive)
+6. Add mobile breakpoint rules (smaller fonts, tighter spacing)
+7. Add to Features dropdown in nav (`ul.nav-dropdown-menu`)
+8. Add `fade-in-section` class to the section element
 
 ### Screenshot Grid Layouts
 
@@ -198,7 +237,7 @@ Original screenshots are stored in `~/Documents/Developer/Screenshots_1.0/Websit
 - `LiveSession/` — Live Session screenshots (e.g. `01.png` through `04.png`)
 - `TechniqueLibrary/` — Technique Library screenshots (`01.png` through `04.png`)
 - `AdvancedAnalytics/` — Advanced Analytics screenshots (`01.png` through `04.png`)
-- `social_stackup/` — Social Feed & Stack Up screenshots (`01.png` through `03.png`)
+- `social_stackup/` — Social Feed & Stack Up screenshots (`01.png` through `04.png`)
 - `HealthMetrics/` — Health Metrics & Data Import screenshots (`01.png` through `04.png`)
 
 Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-session-1.png`) and bump the `?v=N` cache buster.

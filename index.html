@@ -11,9 +11,12 @@
     <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="images/icon.png">
     <link rel="apple-touch-icon" href="images/icon.png">
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -55,8 +58,8 @@
     </section>
 
     <!-- Screenshot Showcase -->
-    <section class="screenshot-showcase">
-        <div class="section-title">See It in Action</div>
+    <section class="screenshot-showcase fade-in-section">
+        <div class="section-title">As Seen in the App Store</div>
         <p class="section-subtitle">Built by practitioners, for practitioners. Every feature designed around real training workflows.</p>
         <div class="screenshot-scroll">
             <div class="screenshot-card">
@@ -87,7 +90,7 @@
     </section>
 
     <!-- Features -->
-    <section id="features" class="section">
+    <section id="features" class="section fade-in-section">
         <div class="container">
             <h2 class="section-title">Everything You Need to Level Up</h2>
             <p class="section-subtitle">From white belt to black belt, Train BJJ grows with your game.</p>
@@ -127,7 +130,7 @@
     </section>
 
     <!-- AI Features -->
-    <section id="ai" class="ai-section">
+    <section id="ai" class="ai-section fade-in-section">
         <div class="container">
 
             <!-- AI Section Header -->
@@ -164,82 +167,102 @@
                 </div>
             </div>
 
-            <!-- Feature 2: Notebook Scanner -->
-            <div class="ai-feature ai-feature-reverse" id="ai-scanner">
-                <div class="ai-feature-content">
-                    <div class="ai-feature-number">02</div>
-                    <h3>Notebook Scanner</h3>
-                    <p class="ai-feature-lead">Photograph your handwritten BJJ notebook and let AI do the rest. Your notes are converted into a fully structured training session in seconds.</p>
-                    <div class="ai-steps">
-                        <div class="ai-step">
-                            <div class="ai-step-num">1</div>
-                            <div>
-                                <strong>Snap or choose a photo</strong>
-                                <span>Take a photo of your notebook page or choose one from your library</span>
+            <!-- Feature 2: Notebook Scanner (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">02</span>
+                    <span class="accordion-title">Notebook Scanner</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="ai-feature ai-feature-reverse" id="ai-scanner">
+                            <div class="ai-feature-content">
+                                <h3>Notebook Scanner</h3>
+                                <p class="ai-feature-lead">Photograph your handwritten BJJ notebook and let AI do the rest. Your notes are converted into a fully structured training session in seconds.</p>
+                                <div class="ai-steps">
+                                    <div class="ai-step">
+                                        <div class="ai-step-num">1</div>
+                                        <div>
+                                            <strong>Snap or choose a photo</strong>
+                                            <span>Take a photo of your notebook page or choose one from your library</span>
+                                        </div>
+                                    </div>
+                                    <div class="ai-step">
+                                        <div class="ai-step-num">2</div>
+                                        <div>
+                                            <strong>AI extracts your notes</strong>
+                                            <span>On-device OCR reads your handwriting, then AI parses session type, techniques, rounds, and notes</span>
+                                        </div>
+                                    </div>
+                                    <div class="ai-step">
+                                        <div class="ai-step-num">3</div>
+                                        <div>
+                                            <strong>Auto-matches your workout</strong>
+                                            <span>If you trained with an Apple Watch, it finds the matching workout for heart rate and calories</span>
+                                        </div>
+                                    </div>
+                                    <div class="ai-step">
+                                        <div class="ai-step-num">4</div>
+                                        <div>
+                                            <strong>Review and save</strong>
+                                            <span>Everything is pre-filled &mdash; class notes, open mat reflection, rounds, subs. Just review and tap Save</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ai-step">
-                            <div class="ai-step-num">2</div>
-                            <div>
-                                <strong>AI extracts your notes</strong>
-                                <span>On-device OCR reads your handwriting, then AI parses session type, techniques, rounds, and notes</span>
+                            <div class="ai-feature-screenshots">
+                                <div class="ai-scanner-grid">
+                                    <div class="ai-phone-small">
+                                        <img src="images/ai-scan-1.png?v=3" alt="Scan notebook - pre-filled session ready to save" loading="lazy" width="170">
+                                        <p class="ai-phone-caption">Pre-filled and ready to save</p>
+                                    </div>
+                                    <div class="ai-phone-small">
+                                        <img src="images/ai-scan-2.png?v=3" alt="Scan notebook - access from the Scan button" loading="lazy" width="170">
+                                        <p class="ai-phone-caption">Tap Scan to get started</p>
+                                    </div>
+                                    <div class="ai-phone-small">
+                                        <img src="images/ai-scan-3.png?v=3" alt="Scan notebook - take photo or choose from library" loading="lazy" width="170">
+                                        <p class="ai-phone-caption">Snap or choose a photo</p>
+                                    </div>
+                                    <div class="ai-phone-small">
+                                        <img src="images/ai-scan-4.png?v=3" alt="Scan notebook - AI analyzing your notes" loading="lazy" width="170">
+                                        <p class="ai-phone-caption">AI reads and analyzes</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ai-step">
-                            <div class="ai-step-num">3</div>
-                            <div>
-                                <strong>Auto-matches your workout</strong>
-                                <span>If you trained with an Apple Watch, it finds the matching workout for heart rate and calories</span>
-                            </div>
-                        </div>
-                        <div class="ai-step">
-                            <div class="ai-step-num">4</div>
-                            <div>
-                                <strong>Review and save</strong>
-                                <span>Everything is pre-filled &mdash; class notes, open mat reflection, rounds, subs. Just review and tap Save</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ai-feature-screenshots">
-                    <div class="ai-scanner-grid">
-                        <div class="ai-phone-small">
-                            <img src="images/ai-scan-1.png?v=3" alt="Scan notebook - pre-filled session ready to save" loading="lazy" width="170">
-                            <p class="ai-phone-caption">Pre-filled and ready to save</p>
-                        </div>
-                        <div class="ai-phone-small">
-                            <img src="images/ai-scan-2.png?v=3" alt="Scan notebook - access from the Scan button" loading="lazy" width="170">
-                            <p class="ai-phone-caption">Tap Scan to get started</p>
-                        </div>
-                        <div class="ai-phone-small">
-                            <img src="images/ai-scan-3.png?v=3" alt="Scan notebook - take photo or choose from library" loading="lazy" width="170">
-                            <p class="ai-phone-caption">Snap or choose a photo</p>
-                        </div>
-                        <div class="ai-phone-small">
-                            <img src="images/ai-scan-4.png?v=3" alt="Scan notebook - AI analyzing your notes" loading="lazy" width="170">
-                            <p class="ai-phone-caption">AI reads and analyzes</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 3: Post-Session Insights -->
-            <div class="ai-feature" id="ai-insights">
-                <div class="ai-feature-content">
-                    <div class="ai-feature-number">03</div>
-                    <h3>Post-Session AI Insights</h3>
-                    <p class="ai-feature-lead">After every training session, get an AI-generated breakdown of what happened on the mat. It connects the dots across your sessions and spots trends you might miss.</p>
-                    <ul class="ai-feature-list">
-                        <li><span class="ai-list-icon">&#128202;</span> Analyzes your session stats, tagged techniques, and notes together</li>
-                        <li><span class="ai-list-icon">&#128161;</span> Identifies what's working, what needs attention, and recommends next steps</li>
-                        <li><span class="ai-list-icon">&#127942;</span> Distinguishes offense vs. defense &mdash; knows a submission is yours and a tap is theirs</li>
-                        <li><span class="ai-list-icon">&#9889;</span> One-tap action buttons to add techniques, create focus points, or tag techniques to the session</li>
-                    </ul>
-                </div>
-                <div class="ai-feature-screenshots">
-                    <div class="ai-phone ai-phone-single">
-                        <img src="images/ai-session-analysis.png" alt="Post-session AI analysis with insights and action buttons" loading="lazy" width="220">
-                        <p class="ai-phone-caption">Real-time AI feedback on every session with actionable suggestions</p>
+            <!-- Feature 3: Post-Session Insights (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">03</span>
+                    <span class="accordion-title">Post-Session AI Insights</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="ai-feature" id="ai-insights">
+                            <div class="ai-feature-content">
+                                <h3>Post-Session AI Insights</h3>
+                                <p class="ai-feature-lead">After every training session, get an AI-generated breakdown of what happened on the mat. It connects the dots across your sessions and spots trends you might miss.</p>
+                                <ul class="ai-feature-list">
+                                    <li><span class="ai-list-icon">&#128202;</span> Analyzes your session stats, tagged techniques, and notes together</li>
+                                    <li><span class="ai-list-icon">&#128161;</span> Identifies what's working, what needs attention, and recommends next steps</li>
+                                    <li><span class="ai-list-icon">&#127942;</span> Distinguishes offense vs. defense &mdash; knows a submission is yours and a tap is theirs</li>
+                                    <li><span class="ai-list-icon">&#9889;</span> One-tap action buttons to add techniques, create focus points, or tag techniques to the session</li>
+                                </ul>
+                            </div>
+                            <div class="ai-feature-screenshots">
+                                <div class="ai-phone ai-phone-single">
+                                    <img src="images/ai-session-analysis.png" alt="Post-session AI analysis with insights and action buttons" loading="lazy" width="220">
+                                    <p class="ai-phone-caption">Real-time AI feedback on every session with actionable suggestions</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -257,7 +280,7 @@
     </section>
 
     <!-- Live Session -->
-    <section id="live-session" class="live-section">
+    <section id="live-session" class="live-section fade-in-section">
         <div class="container">
 
             <!-- Section Header -->
@@ -287,62 +310,92 @@
                 </div>
             </div>
 
-            <!-- Feature 2: Quick Controls -->
-            <div class="live-feature live-feature-reverse" id="live-controls">
-                <div class="live-feature-content">
-                    <div class="live-feature-number">02</div>
-                    <h3>Quick Controls Between Rounds</h3>
-                    <p class="live-feature-lead">When the round ends, grab your water and tap a few buttons. Increment your submissions, log a tap, tag the triangle you hit &mdash; it takes seconds, and you'll never forget the details.</p>
-                    <ul class="live-feature-list">
-                        <li><span class="live-list-icon">&#128073;</span> Tap +/- to log rounds rolled, submissions, and taps as they happen</li>
-                        <li><span class="live-list-icon">&#129351;</span> Tag techniques you used &mdash; with position and outcome &mdash; while they're fresh</li>
-                        <li><span class="live-list-icon">&#127919;</span> Your focus points stay visible so you remember what to work on each round</li>
-                    </ul>
-                </div>
-                <div class="live-feature-screenshots">
-                    <div class="live-phone">
-                        <img src="images/live-session-2.png" alt="Quick controls for stats and technique tagging" loading="lazy" width="220">
-                        <p class="live-phone-caption">Increment stats and tag techniques between rounds</p>
+            <!-- Feature 2: Quick Controls (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">02</span>
+                    <span class="accordion-title">Quick Controls Between Rounds</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="live-feature live-feature-reverse" id="live-controls">
+                            <div class="live-feature-content">
+                                <h3>Quick Controls Between Rounds</h3>
+                                <p class="live-feature-lead">When the round ends, grab your water and tap a few buttons. Increment your submissions, log a tap, tag the triangle you hit &mdash; it takes seconds, and you'll never forget the details.</p>
+                                <ul class="live-feature-list">
+                                    <li><span class="live-list-icon">&#128073;</span> Tap +/- to log rounds rolled, submissions, and taps as they happen</li>
+                                    <li><span class="live-list-icon">&#129351;</span> Tag techniques you used &mdash; with position and outcome &mdash; while they're fresh</li>
+                                    <li><span class="live-list-icon">&#127919;</span> Your focus points stay visible so you remember what to work on each round</li>
+                                </ul>
+                            </div>
+                            <div class="live-feature-screenshots">
+                                <div class="live-phone">
+                                    <img src="images/live-session-2.png" alt="Quick controls for stats and technique tagging" loading="lazy" width="220">
+                                    <p class="live-phone-caption">Increment stats and tag techniques between rounds</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 3: Save & Reflect -->
-            <div class="live-feature" id="live-save">
-                <div class="live-feature-content">
-                    <div class="live-feature-number">03</div>
-                    <h3>Save &amp; Reflect</h3>
-                    <p class="live-feature-lead">When you're done rolling, everything you tracked is already filled in. Add your notes while the session is still fresh, then save &mdash; no more trying to reconstruct your rolls from memory at home.</p>
-                    <ul class="live-feature-list">
-                        <li><span class="live-list-icon">&#128221;</span> Choose session type: Open Mat only, Class + Open Mat, or Class Before</li>
-                        <li><span class="live-list-icon">&#9997;&#65039;</span> Add class notes and open mat reflections &mdash; what worked, what didn't</li>
-                        <li><span class="live-list-icon">&#9201;</span> Class Before adjusts your start time to account for instruction time</li>
-                    </ul>
-                </div>
-                <div class="live-feature-screenshots">
-                    <div class="live-phone">
-                        <img src="images/live-session-3.png" alt="Session complete with save options and reflection" loading="lazy" width="220">
-                        <p class="live-phone-caption">Save your session with class notes and reflections</p>
+            <!-- Feature 3: Save & Reflect (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">03</span>
+                    <span class="accordion-title">Save &amp; Reflect</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="live-feature" id="live-save">
+                            <div class="live-feature-content">
+                                <h3>Save &amp; Reflect</h3>
+                                <p class="live-feature-lead">When you're done rolling, everything you tracked is already filled in. Add your notes while the session is still fresh, then save &mdash; no more trying to reconstruct your rolls from memory at home.</p>
+                                <ul class="live-feature-list">
+                                    <li><span class="live-list-icon">&#128221;</span> Choose session type: Open Mat only, Class + Open Mat, or Class Before</li>
+                                    <li><span class="live-list-icon">&#9997;&#65039;</span> Add class notes and open mat reflections &mdash; what worked, what didn't</li>
+                                    <li><span class="live-list-icon">&#9201;</span> Class Before adjusts your start time to account for instruction time</li>
+                                </ul>
+                            </div>
+                            <div class="live-feature-screenshots">
+                                <div class="live-phone">
+                                    <img src="images/live-session-3.png" alt="Session complete with save options and reflection" loading="lazy" width="220">
+                                    <p class="live-phone-caption">Save your session with class notes and reflections</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 4: Lock Screen -->
-            <div class="live-feature live-feature-reverse" id="live-lockscreen">
-                <div class="live-feature-content">
-                    <div class="live-feature-number">04</div>
-                    <h3>Lock Screen &amp; Dynamic Island</h3>
-                    <p class="live-feature-lead">Don't want to unlock your phone between rounds? You don't have to. Increment your stats right from the lock screen or Dynamic Island &mdash; your phone never leaves your bag.</p>
-                    <ul class="live-feature-list">
-                        <li><span class="live-list-icon">&#128241;</span> Tap +/- buttons on the lock screen to update rounds, submissions, and taps</li>
-                        <li><span class="live-list-icon">&#128994;</span> Dynamic Island shows your session duration and round count at a glance</li>
-                        <li><span class="live-list-icon">&#128274;</span> No unlocking, no app switching &mdash; just quick taps and back to rolling</li>
-                    </ul>
-                </div>
-                <div class="live-feature-screenshots">
-                    <div class="live-phone">
-                        <img src="images/live-session-4.png?v=2" alt="Lock screen Live Activity with session controls" loading="lazy" width="220">
-                        <p class="live-phone-caption">Track rounds from your lock screen</p>
+            <!-- Feature 4: Lock Screen (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">04</span>
+                    <span class="accordion-title">Lock Screen &amp; Dynamic Island</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="live-feature live-feature-reverse" id="live-lockscreen">
+                            <div class="live-feature-content">
+                                <h3>Lock Screen &amp; Dynamic Island</h3>
+                                <p class="live-feature-lead">Don't want to unlock your phone between rounds? You don't have to. Increment your stats right from the lock screen or Dynamic Island &mdash; your phone never leaves your bag.</p>
+                                <ul class="live-feature-list">
+                                    <li><span class="live-list-icon">&#128241;</span> Tap +/- buttons on the lock screen to update rounds, submissions, and taps</li>
+                                    <li><span class="live-list-icon">&#128994;</span> Dynamic Island shows your session duration and round count at a glance</li>
+                                    <li><span class="live-list-icon">&#128274;</span> No unlocking, no app switching &mdash; just quick taps and back to rolling</li>
+                                </ul>
+                            </div>
+                            <div class="live-feature-screenshots">
+                                <div class="live-phone">
+                                    <img src="images/live-session-4.png?v=2" alt="Lock screen Live Activity with session controls" loading="lazy" width="220">
+                                    <p class="live-phone-caption">Track rounds from your lock screen</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -351,7 +404,7 @@
     </section>
 
     <!-- Technique Library -->
-    <section id="techniques" class="tech-section">
+    <section id="techniques" class="tech-section fade-in-section">
         <div class="container">
 
             <!-- Section Header -->
@@ -381,62 +434,92 @@
                 </div>
             </div>
 
-            <!-- Feature 2: Training History -->
-            <div class="tech-feature tech-feature-reverse" id="tech-history">
-                <div class="tech-feature-content">
-                    <div class="tech-feature-number">02</div>
-                    <h3>Full Training History</h3>
-                    <p class="tech-feature-lead">Every time you tag a technique in a session, it's recorded. Open any technique to see a complete timeline &mdash; when you used it, from what position, and with what outcome.</p>
-                    <ul class="tech-feature-list">
-                        <li><span class="tech-list-icon">&#128197;</span> See every session where you tagged the technique, with date and session type</li>
-                        <li><span class="tech-list-icon">&#128202;</span> Filter by position &mdash; top, bottom, or submissions &mdash; to spot patterns</li>
-                        <li><span class="tech-list-icon">&#128161;</span> Each technique includes a description and category for quick reference</li>
-                    </ul>
-                </div>
-                <div class="tech-feature-screenshots">
-                    <div class="tech-phone">
-                        <img src="images/tech-02.png" alt="Technique detail with training history and position filters" loading="lazy" width="220">
-                        <p class="tech-phone-caption">Complete training history for every technique</p>
+            <!-- Feature 2: Training History (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">02</span>
+                    <span class="accordion-title">Full Training History</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="tech-feature tech-feature-reverse" id="tech-history">
+                            <div class="tech-feature-content">
+                                <h3>Full Training History</h3>
+                                <p class="tech-feature-lead">Every time you tag a technique in a session, it's recorded. Open any technique to see a complete timeline &mdash; when you used it, from what position, and with what outcome.</p>
+                                <ul class="tech-feature-list">
+                                    <li><span class="tech-list-icon">&#128197;</span> See every session where you tagged the technique, with date and session type</li>
+                                    <li><span class="tech-list-icon">&#128202;</span> Filter by position &mdash; top, bottom, or submissions &mdash; to spot patterns</li>
+                                    <li><span class="tech-list-icon">&#128161;</span> Each technique includes a description and category for quick reference</li>
+                                </ul>
+                            </div>
+                            <div class="tech-feature-screenshots">
+                                <div class="tech-phone">
+                                    <img src="images/tech-02.png" alt="Technique detail with training history and position filters" loading="lazy" width="220">
+                                    <p class="tech-phone-caption">Complete training history for every technique</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 3: Instructional Links -->
-            <div class="tech-feature" id="tech-instructionals">
-                <div class="tech-feature-content">
-                    <div class="tech-feature-number">03</div>
-                    <h3>Link Instructional Content</h3>
-                    <p class="tech-feature-lead">Found a great breakdown on YouTube or Instagram? Link it directly to the technique. Keep all your study material organized alongside your training data so it's there when you need it.</p>
-                    <ul class="tech-feature-list">
-                        <li><span class="tech-list-icon">&#128279;</span> Paste links from YouTube, Instagram, TikTok, Facebook, or any website</li>
-                        <li><span class="tech-list-icon">&#9989;</span> Auto-detects the platform and adds the right icon</li>
-                        <li><span class="tech-list-icon">&#128221;</span> Add a description so you remember why you saved it</li>
-                    </ul>
-                </div>
-                <div class="tech-feature-screenshots">
-                    <div class="tech-phone">
-                        <img src="images/tech-03.png" alt="Add instructional link with auto-detected Instagram platform" loading="lazy" width="220">
-                        <p class="tech-phone-caption">Link instructionals from YouTube, Instagram, and more</p>
+            <!-- Feature 3: Instructional Links (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">03</span>
+                    <span class="accordion-title">Link Instructional Content</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="tech-feature" id="tech-instructionals">
+                            <div class="tech-feature-content">
+                                <h3>Link Instructional Content</h3>
+                                <p class="tech-feature-lead">Found a great breakdown on YouTube or Instagram? Link it directly to the technique. Keep all your study material organized alongside your training data so it's there when you need it.</p>
+                                <ul class="tech-feature-list">
+                                    <li><span class="tech-list-icon">&#128279;</span> Paste links from YouTube, Instagram, TikTok, Facebook, or any website</li>
+                                    <li><span class="tech-list-icon">&#9989;</span> Auto-detects the platform and adds the right icon</li>
+                                    <li><span class="tech-list-icon">&#128221;</span> Add a description so you remember why you saved it</li>
+                                </ul>
+                            </div>
+                            <div class="tech-feature-screenshots">
+                                <div class="tech-phone">
+                                    <img src="images/tech-03.png" alt="Add instructional link with auto-detected Instagram platform" loading="lazy" width="220">
+                                    <p class="tech-phone-caption">Link instructionals from YouTube, Instagram, and more</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 4: Custom Techniques -->
-            <div class="tech-feature tech-feature-reverse" id="tech-custom">
-                <div class="tech-feature-content">
-                    <div class="tech-feature-number">04</div>
-                    <h3>Create Custom Techniques</h3>
-                    <p class="tech-feature-lead">Your game is unique. Create your own techniques with a name, category, position, and description &mdash; then tag them in sessions just like the built-in library.</p>
-                    <ul class="tech-feature-list">
-                        <li><span class="tech-list-icon">&#9999;&#65039;</span> Name your technique and assign a category and position</li>
-                        <li><span class="tech-list-icon">&#128221;</span> Add a description with execution details and key points</li>
-                        <li><span class="tech-list-icon">&#128279;</span> Attach instructional links right from the start</li>
-                    </ul>
-                </div>
-                <div class="tech-feature-screenshots">
-                    <div class="tech-phone">
-                        <img src="images/tech-04.png" alt="Create a custom technique with name, category, and position" loading="lazy" width="220">
-                        <p class="tech-phone-caption">Build techniques specific to your game</p>
+            <!-- Feature 4: Custom Techniques (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">04</span>
+                    <span class="accordion-title">Create Custom Techniques</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="tech-feature tech-feature-reverse" id="tech-custom">
+                            <div class="tech-feature-content">
+                                <h3>Create Custom Techniques</h3>
+                                <p class="tech-feature-lead">Your game is unique. Create your own techniques with a name, category, position, and description &mdash; then tag them in sessions just like the built-in library.</p>
+                                <ul class="tech-feature-list">
+                                    <li><span class="tech-list-icon">&#9999;&#65039;</span> Name your technique and assign a category and position</li>
+                                    <li><span class="tech-list-icon">&#128221;</span> Add a description with execution details and key points</li>
+                                    <li><span class="tech-list-icon">&#128279;</span> Attach instructional links right from the start</li>
+                                </ul>
+                            </div>
+                            <div class="tech-feature-screenshots">
+                                <div class="tech-phone">
+                                    <img src="images/tech-04.png" alt="Create a custom technique with name, category, and position" loading="lazy" width="220">
+                                    <p class="tech-phone-caption">Build techniques specific to your game</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -445,7 +528,7 @@
     </section>
 
     <!-- Advanced Analytics -->
-    <section id="analytics" class="stat-section">
+    <section id="analytics" class="stat-section fade-in-section">
         <div class="container">
 
             <!-- Section Header -->
@@ -475,62 +558,92 @@
                 </div>
             </div>
 
-            <!-- Feature 2: Position Efficiency -->
-            <div class="stat-feature stat-feature-reverse" id="stat-position">
-                <div class="stat-feature-content">
-                    <div class="stat-feature-number">02</div>
-                    <h3>Position Efficiency</h3>
-                    <p class="stat-feature-lead">Find out where your game is strongest and where it needs work. Position efficiency shows your success rate from top, bottom, and standing &mdash; so you can train smarter, not just harder.</p>
-                    <ul class="stat-feature-list">
-                        <li><span class="stat-list-icon">&#127919;</span> Efficiency percentage for each position based on your outcomes</li>
-                        <li><span class="stat-list-icon">&#128202;</span> Visual breakdown of time spent in each position</li>
-                        <li><span class="stat-list-icon">&#128161;</span> See submissions, sweeps, escapes, and total exchanges per position</li>
-                    </ul>
-                </div>
-                <div class="stat-feature-screenshots">
-                    <div class="stat-phone">
-                        <img src="images/analytics-02.png" alt="Position efficiency chart showing top, bottom, and standing game" loading="lazy" width="220">
-                        <p class="stat-phone-caption">Position efficiency for top, bottom, and standing</p>
+            <!-- Feature 2: Position Efficiency (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">02</span>
+                    <span class="accordion-title">Position Efficiency</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="stat-feature stat-feature-reverse" id="stat-position">
+                            <div class="stat-feature-content">
+                                <h3>Position Efficiency</h3>
+                                <p class="stat-feature-lead">Find out where your game is strongest and where it needs work. Position efficiency shows your success rate from top, bottom, and standing &mdash; so you can train smarter, not just harder.</p>
+                                <ul class="stat-feature-list">
+                                    <li><span class="stat-list-icon">&#127919;</span> Efficiency percentage for each position based on your outcomes</li>
+                                    <li><span class="stat-list-icon">&#128202;</span> Visual breakdown of time spent in each position</li>
+                                    <li><span class="stat-list-icon">&#128161;</span> See submissions, sweeps, escapes, and total exchanges per position</li>
+                                </ul>
+                            </div>
+                            <div class="stat-feature-screenshots">
+                                <div class="stat-phone">
+                                    <img src="images/analytics-02.png" alt="Position efficiency chart showing top, bottom, and standing game" loading="lazy" width="220">
+                                    <p class="stat-phone-caption">Position efficiency for top, bottom, and standing</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 3: Training Trends -->
-            <div class="stat-feature" id="stat-trends">
-                <div class="stat-feature-content">
-                    <div class="stat-feature-number">03</div>
-                    <h3>Training Trends</h3>
-                    <p class="stat-feature-lead">Track your mat time and training volume over weeks and months. The trend chart shows how consistent you've been &mdash; and makes it easy to spot when you're ramping up or falling off.</p>
-                    <ul class="stat-feature-list">
-                        <li><span class="stat-list-icon">&#128200;</span> Mat time chart shows your training volume over any time period</li>
-                        <li><span class="stat-list-icon">&#128293;</span> Filter by week, month, year, or all time to zoom in or out</li>
-                        <li><span class="stat-list-icon">&#128640;</span> Jump straight to Advanced Analytics for the full game breakdown</li>
-                    </ul>
-                </div>
-                <div class="stat-feature-screenshots">
-                    <div class="stat-phone">
-                        <img src="images/analytics-03.png" alt="Training trends chart showing mat time over the month" loading="lazy" width="220">
-                        <p class="stat-phone-caption">Track your mat time and training trends</p>
+            <!-- Feature 3: Training Trends (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">03</span>
+                    <span class="accordion-title">Training Trends</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="stat-feature" id="stat-trends">
+                            <div class="stat-feature-content">
+                                <h3>Training Trends</h3>
+                                <p class="stat-feature-lead">Track your mat time and training volume over weeks and months. The trend chart shows how consistent you've been &mdash; and makes it easy to spot when you're ramping up or falling off.</p>
+                                <ul class="stat-feature-list">
+                                    <li><span class="stat-list-icon">&#128200;</span> Mat time chart shows your training volume over any time period</li>
+                                    <li><span class="stat-list-icon">&#128293;</span> Filter by week, month, year, or all time to zoom in or out</li>
+                                    <li><span class="stat-list-icon">&#128640;</span> Jump straight to Advanced Analytics for the full game breakdown</li>
+                                </ul>
+                            </div>
+                            <div class="stat-feature-screenshots">
+                                <div class="stat-phone">
+                                    <img src="images/analytics-03.png" alt="Training trends chart showing mat time over the month" loading="lazy" width="220">
+                                    <p class="stat-phone-caption">Track your mat time and training trends</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 4: Full Profile Dashboard -->
-            <div class="stat-feature stat-feature-reverse" id="stat-dashboard">
-                <div class="stat-feature-content">
-                    <div class="stat-feature-number">04</div>
-                    <h3>Full Profile Dashboard</h3>
-                    <p class="stat-feature-lead">Everything about your training in one place. Session counts by type, calories burned from Apple Health, supplemental training days, and your most-used techniques &mdash; all filterable by time period.</p>
-                    <ul class="stat-feature-list">
-                        <li><span class="stat-list-icon">&#128170;</span> Session counts broken out by class, open mat, private lessons, and competitions</li>
-                        <li><span class="stat-list-icon">&#128293;</span> Calories burned and supplemental training days pulled from Apple Health</li>
-                        <li><span class="stat-list-icon">&#129351;</span> Top submission and most-tapped technique at a glance</li>
-                    </ul>
-                </div>
-                <div class="stat-feature-screenshots">
-                    <div class="stat-phone">
-                        <img src="images/analytics-04.png" alt="Full profile dashboard with session counts, calories, and top techniques" loading="lazy" width="220">
-                        <p class="stat-phone-caption">Your complete training dashboard</p>
+            <!-- Feature 4: Full Profile Dashboard (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">04</span>
+                    <span class="accordion-title">Full Profile Dashboard</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="stat-feature stat-feature-reverse" id="stat-dashboard">
+                            <div class="stat-feature-content">
+                                <h3>Full Profile Dashboard</h3>
+                                <p class="stat-feature-lead">Everything about your training in one place. Session counts by type, calories burned from Apple Health, supplemental training days, and your most-used techniques &mdash; all filterable by time period.</p>
+                                <ul class="stat-feature-list">
+                                    <li><span class="stat-list-icon">&#128170;</span> Session counts broken out by class, open mat, private lessons, and competitions</li>
+                                    <li><span class="stat-list-icon">&#128293;</span> Calories burned and supplemental training days pulled from Apple Health</li>
+                                    <li><span class="stat-list-icon">&#129351;</span> Top submission and most-tapped technique at a glance</li>
+                                </ul>
+                            </div>
+                            <div class="stat-feature-screenshots">
+                                <div class="stat-phone">
+                                    <img src="images/analytics-04.png" alt="Full profile dashboard with session counts, calories, and top techniques" loading="lazy" width="220">
+                                    <p class="stat-phone-caption">Your complete training dashboard</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -539,7 +652,7 @@
     </section>
 
     <!-- Social Feed & Stack Up -->
-    <section id="social" class="social-section">
+    <section id="social" class="social-section fade-in-section">
         <div class="container">
 
             <!-- Section Header -->
@@ -570,65 +683,95 @@
                 </div>
             </div>
 
-            <!-- Feature 2: Stack Up Overview -->
-            <div class="social-feature social-feature-reverse" id="social-stackup">
-                <div class="social-feature-content">
-                    <div class="social-feature-number">02</div>
-                    <h3>Stack Up Comparisons</h3>
-                    <p class="social-feature-lead">Pick a training partner and go head to head. Stack Up compares 20 metrics across 5 categories &mdash; Volume, Consistency, Offense, Defense, and Ratios &mdash; with an overall score that tells you who's ahead at a glance.</p>
-                    <ul class="social-feature-list">
-                        <li><span class="social-list-icon">&#9878;&#65039;</span> Overall score aggregates all 5 categories so you instantly see who's winning</li>
-                        <li><span class="social-list-icon">&#128200;</span> Volume tracks mat hours, total sessions, rounds rolled, and competitions entered</li>
-                        <li><span class="social-list-icon">&#128170;</span> Consistency compares day streaks, week streaks, and training frequency</li>
-                        <li><span class="social-list-icon">&#128197;</span> Filter by week, month, year, or all time &mdash; navigate between periods to track who's improving faster</li>
-                    </ul>
-                </div>
-                <div class="social-feature-screenshots">
-                    <div class="social-phone">
-                        <img src="images/social-01.png" alt="Stack Up side-by-side comparison with overall score" loading="lazy" width="220">
-                        <p class="social-phone-caption">See who's ahead across 20 training metrics</p>
+            <!-- Feature 2: Stack Up Overview (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">02</span>
+                    <span class="accordion-title">Stack Up Comparisons</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="social-feature social-feature-reverse" id="social-stackup">
+                            <div class="social-feature-content">
+                                <h3>Stack Up Comparisons</h3>
+                                <p class="social-feature-lead">Pick a training partner and go head to head. Stack Up compares 20 metrics across 5 categories &mdash; Volume, Consistency, Offense, Defense, and Ratios &mdash; with an overall score that tells you who's ahead at a glance.</p>
+                                <ul class="social-feature-list">
+                                    <li><span class="social-list-icon">&#9878;&#65039;</span> Overall score aggregates all 5 categories so you instantly see who's winning</li>
+                                    <li><span class="social-list-icon">&#128200;</span> Volume tracks mat hours, total sessions, rounds rolled, and competitions entered</li>
+                                    <li><span class="social-list-icon">&#128170;</span> Consistency compares day streaks, week streaks, and training frequency</li>
+                                    <li><span class="social-list-icon">&#128197;</span> Filter by week, month, year, or all time &mdash; navigate between periods to track who's improving faster</li>
+                                </ul>
+                            </div>
+                            <div class="social-feature-screenshots">
+                                <div class="social-phone">
+                                    <img src="images/social-01.png" alt="Stack Up side-by-side comparison with overall score" loading="lazy" width="220">
+                                    <p class="social-phone-caption">See who's ahead across 20 training metrics</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 3: Stack Up Detail -->
-            <div class="social-feature" id="social-metrics">
-                <div class="social-feature-content">
-                    <div class="social-feature-number">03</div>
-                    <h3>Deep Metric Breakdown</h3>
-                    <p class="social-feature-lead">Drill into the numbers that matter. Offense compares submissions, sweeps, takedowns, escapes, and guard passes. Defense shows taps, times swept, taken down, and guard passed. Ratios like sub-to-tap, sweep ratio, and net score reveal who's actually more efficient.</p>
-                    <ul class="social-feature-list">
-                        <li><span class="social-list-icon">&#9876;&#65039;</span> Offense: submissions, sweeps, takedowns, escapes, and guard passes compared side by side</li>
-                        <li><span class="social-list-icon">&#128737;&#65039;</span> Defense: taps, got swept, got taken down, and got guard passed &mdash; see who's getting caught more</li>
-                        <li><span class="social-list-icon">&#128202;</span> Ratios: sub-to-tap, sweep, takedown, guard pass, and overall net score for true efficiency comparison</li>
-                        <li><span class="social-list-icon">&#127942;</span> Percentile rankings from Needs Work to Elite show where each metric lands</li>
-                    </ul>
-                </div>
-                <div class="social-feature-screenshots">
-                    <div class="social-phone">
-                        <img src="images/social-02.png" alt="Stack Up consistency and offense metrics with comparison bars" loading="lazy" width="220">
-                        <p class="social-phone-caption">Detailed breakdown across every category</p>
+            <!-- Feature 3: Stack Up Detail (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">03</span>
+                    <span class="accordion-title">Deep Metric Breakdown</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="social-feature" id="social-metrics">
+                            <div class="social-feature-content">
+                                <h3>Deep Metric Breakdown</h3>
+                                <p class="social-feature-lead">Drill into the numbers that matter. Offense compares submissions, sweeps, takedowns, escapes, and guard passes. Defense shows taps, times swept, taken down, and guard passed. Ratios like sub-to-tap, sweep ratio, and net score reveal who's actually more efficient.</p>
+                                <ul class="social-feature-list">
+                                    <li><span class="social-list-icon">&#9876;&#65039;</span> Offense: submissions, sweeps, takedowns, escapes, and guard passes compared side by side</li>
+                                    <li><span class="social-list-icon">&#128737;&#65039;</span> Defense: taps, got swept, got taken down, and got guard passed &mdash; see who's getting caught more</li>
+                                    <li><span class="social-list-icon">&#128202;</span> Ratios: sub-to-tap, sweep, takedown, guard pass, and overall net score for true efficiency comparison</li>
+                                    <li><span class="social-list-icon">&#127942;</span> Percentile rankings from Needs Work to Elite show where each metric lands</li>
+                                </ul>
+                            </div>
+                            <div class="social-feature-screenshots">
+                                <div class="social-phone">
+                                    <img src="images/social-02.png" alt="Stack Up consistency and offense metrics with comparison bars" loading="lazy" width="220">
+                                    <p class="social-phone-caption">Detailed breakdown across every category</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 4: Shareable Session Cards -->
-            <div class="social-feature social-feature-reverse" id="social-share">
-                <div class="social-feature-content">
-                    <div class="social-feature-number">04</div>
-                    <h3>Shareable Session Cards</h3>
-                    <p class="social-feature-lead">Turn any training session into a custom social card built for sharing. Each card is unique to the session &mdash; you choose which stats to highlight, and Train BJJ generates a clean, Instagram-ready image you can save or share anywhere.</p>
-                    <ul class="social-feature-list">
-                        <li><span class="social-list-icon">&#127912;</span> Every card is custom to the session &mdash; session type, duration, gym, and date are pulled automatically</li>
-                        <li><span class="social-list-icon">&#128202;</span> "Highlight Your Stats" lets you pick up to 2 metrics from that session &mdash; sweeps, submissions, takedowns, escapes, and more</li>
-                        <li><span class="social-list-icon">&#128293;</span> Optionally include calories burned and your current training streak</li>
-                        <li><span class="social-list-icon">&#128228;</span> Save to Photos or share directly to Instagram, iMessage, WhatsApp, or any platform</li>
-                    </ul>
-                </div>
-                <div class="social-feature-screenshots">
-                    <div class="social-phone">
-                        <img src="images/social-04.png" alt="Shareable session card with customizable stat selection" loading="lazy" width="220">
-                        <p class="social-phone-caption">Custom cards &mdash; you pick what stats to share</p>
+            <!-- Feature 4: Shareable Session Cards (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">04</span>
+                    <span class="accordion-title">Shareable Session Cards</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="social-feature social-feature-reverse" id="social-share">
+                            <div class="social-feature-content">
+                                <h3>Shareable Session Cards</h3>
+                                <p class="social-feature-lead">Turn any training session into a custom social card built for sharing. Each card is unique to the session &mdash; you choose which stats to highlight, and Train BJJ generates a clean, Instagram-ready image you can save or share anywhere.</p>
+                                <ul class="social-feature-list">
+                                    <li><span class="social-list-icon">&#127912;</span> Every card is custom to the session &mdash; session type, duration, gym, and date are pulled automatically</li>
+                                    <li><span class="social-list-icon">&#128202;</span> "Highlight Your Stats" lets you pick up to 2 metrics from that session &mdash; sweeps, submissions, takedowns, escapes, and more</li>
+                                    <li><span class="social-list-icon">&#128293;</span> Optionally include calories burned and your current training streak</li>
+                                    <li><span class="social-list-icon">&#128228;</span> Save to Photos or share directly to Instagram, iMessage, WhatsApp, or any platform</li>
+                                </ul>
+                            </div>
+                            <div class="social-feature-screenshots">
+                                <div class="social-phone">
+                                    <img src="images/social-04.png" alt="Shareable session card with customizable stat selection" loading="lazy" width="220">
+                                    <p class="social-phone-caption">Custom cards &mdash; you pick what stats to share</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -637,7 +780,7 @@
     </section>
 
     <!-- Health Metrics & Data Import -->
-    <section id="health" class="health-section">
+    <section id="health" class="health-section fade-in-section">
         <div class="container">
 
             <!-- Section Header -->
@@ -667,62 +810,92 @@
                 </div>
             </div>
 
-            <!-- Feature 2: Auto-Detection -->
-            <div class="health-feature health-feature-reverse" id="health-detect">
-                <div class="health-feature-content">
-                    <div class="health-feature-number">02</div>
-                    <h3>Automatic Session Detection</h3>
-                    <p class="health-feature-lead">Finish training and Train BJJ knows. The app monitors Apple Health for new workouts and prompts you to log a session &mdash; with the health data already attached. One tap and you're done.</p>
-                    <ul class="health-feature-list">
-                        <li><span class="health-list-icon">&#128276;</span> Workout Detected prompt appears automatically after training</li>
-                        <li><span class="health-list-icon">&#9201;&#65039;</span> Duration, calories, heart rate, and source device shown at a glance</li>
-                        <li><span class="health-list-icon">&#128073;</span> Tap "Create Session" to log it instantly with all health data pre-filled</li>
-                    </ul>
-                </div>
-                <div class="health-feature-screenshots">
-                    <div class="health-phone">
-                        <img src="images/health-02.png" alt="Workout Detected sheet showing WHOOP workout with calories and heart rate" loading="lazy" width="220">
-                        <p class="health-phone-caption">Auto-detected workout ready to log in one tap</p>
+            <!-- Feature 2: Auto-Detection (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">02</span>
+                    <span class="accordion-title">Automatic Session Detection</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="health-feature health-feature-reverse" id="health-detect">
+                            <div class="health-feature-content">
+                                <h3>Automatic Session Detection</h3>
+                                <p class="health-feature-lead">Finish training and Train BJJ knows. The app monitors Apple Health for new workouts and prompts you to log a session &mdash; with the health data already attached. One tap and you're done.</p>
+                                <ul class="health-feature-list">
+                                    <li><span class="health-list-icon">&#128276;</span> Workout Detected prompt appears automatically after training</li>
+                                    <li><span class="health-list-icon">&#9201;&#65039;</span> Duration, calories, heart rate, and source device shown at a glance</li>
+                                    <li><span class="health-list-icon">&#128073;</span> Tap "Create Session" to log it instantly with all health data pre-filled</li>
+                                </ul>
+                            </div>
+                            <div class="health-feature-screenshots">
+                                <div class="health-phone">
+                                    <img src="images/health-02.png" alt="Workout Detected sheet showing WHOOP workout with calories and heart rate" loading="lazy" width="220">
+                                    <p class="health-phone-caption">Auto-detected workout ready to log in one tap</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 3: Import Health History -->
-            <div class="health-feature" id="health-import">
-                <div class="health-feature-content">
-                    <div class="health-feature-number">03</div>
-                    <h3>Import Health History</h3>
-                    <p class="health-feature-lead">Started using Train BJJ after months of training? No problem. Bulk import past workouts directly from Apple Health &mdash; choose a 3, 6, or 12 month window and bring your entire training history up to speed in seconds.</p>
-                    <ul class="health-feature-list">
-                        <li><span class="health-list-icon">&#128197;</span> Pull martial arts, wrestling, and mixed cardio workouts from Apple Health</li>
-                        <li><span class="health-list-icon">&#128203;</span> Select which workouts to import &mdash; see type, duration, and calories for each</li>
-                        <li><span class="health-list-icon">&#9989;</span> Duplicate detection ensures workouts already in your journal aren't imported twice</li>
-                    </ul>
-                </div>
-                <div class="health-feature-screenshots">
-                    <div class="health-phone">
-                        <img src="images/health-03.png" alt="Import Health History screen showing past workouts from Apple Health" loading="lazy" width="220">
-                        <p class="health-phone-caption">Bulk import past workouts from Apple Health</p>
+            <!-- Feature 3: Import Health History (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">03</span>
+                    <span class="accordion-title">Import Health History</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="health-feature" id="health-import">
+                            <div class="health-feature-content">
+                                <h3>Import Health History</h3>
+                                <p class="health-feature-lead">Started using Train BJJ after months of training? No problem. Bulk import past workouts directly from Apple Health &mdash; choose a 3, 6, or 12 month window and bring your entire training history up to speed in seconds.</p>
+                                <ul class="health-feature-list">
+                                    <li><span class="health-list-icon">&#128197;</span> Pull martial arts, wrestling, and mixed cardio workouts from Apple Health</li>
+                                    <li><span class="health-list-icon">&#128203;</span> Select which workouts to import &mdash; see type, duration, and calories for each</li>
+                                    <li><span class="health-list-icon">&#9989;</span> Duplicate detection ensures workouts already in your journal aren't imported twice</li>
+                                </ul>
+                            </div>
+                            <div class="health-feature-screenshots">
+                                <div class="health-phone">
+                                    <img src="images/health-03.png" alt="Import Health History screen showing past workouts from Apple Health" loading="lazy" width="220">
+                                    <p class="health-phone-caption">Bulk import past workouts from Apple Health</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 4: HealthKit Matching for All Imports -->
-            <div class="health-feature health-feature-reverse" id="health-match">
-                <div class="health-feature-content">
-                    <div class="health-feature-number">04</div>
-                    <h3>HealthKit Matching for Every Import</h3>
-                    <p class="health-feature-lead">However you bring data into Train BJJ, health metrics come along for the ride. CSV import, notebook scanner, and direct Health import all match your sessions to the closest HealthKit workout &mdash; so every session gets heart rate and calories attached.</p>
-                    <ul class="health-feature-list">
-                        <li><span class="health-list-icon">&#128196;</span> CSV import matches each row to the closest HealthKit workout by time</li>
-                        <li><span class="health-list-icon">&#128247;</span> Notebook scanner photos match to HealthKit workouts on the same date</li>
-                        <li><span class="health-list-icon">&#128279;</span> Toggle "Match with HealthKit workouts" on or off for any import method</li>
-                    </ul>
-                </div>
-                <div class="health-feature-screenshots">
-                    <div class="health-phone">
-                        <img src="images/health-04.png" alt="CSV import screen with Match with HealthKit workouts toggle enabled" loading="lazy" width="220">
-                        <p class="health-phone-caption">Every import method enriches sessions with health data</p>
+            <!-- Feature 4: HealthKit Matching (Accordion) -->
+            <div class="accordion-item" data-expanded="false">
+                <button class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-number">04</span>
+                    <span class="accordion-title">HealthKit Matching for Every Import</span>
+                    <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="accordion-panel" role="region">
+                    <div class="accordion-panel-inner">
+                        <div class="health-feature health-feature-reverse" id="health-match">
+                            <div class="health-feature-content">
+                                <h3>HealthKit Matching for Every Import</h3>
+                                <p class="health-feature-lead">However you bring data into Train BJJ, health metrics come along for the ride. CSV import, notebook scanner, and direct Health import all match your sessions to the closest HealthKit workout &mdash; so every session gets heart rate and calories attached.</p>
+                                <ul class="health-feature-list">
+                                    <li><span class="health-list-icon">&#128196;</span> CSV import matches each row to the closest HealthKit workout by time</li>
+                                    <li><span class="health-list-icon">&#128247;</span> Notebook scanner photos match to HealthKit workouts on the same date</li>
+                                    <li><span class="health-list-icon">&#128279;</span> Toggle "Match with HealthKit workouts" on or off for any import method</li>
+                                </ul>
+                            </div>
+                            <div class="health-feature-screenshots">
+                                <div class="health-phone">
+                                    <img src="images/health-04.png" alt="CSV import screen with Match with HealthKit workouts toggle enabled" loading="lazy" width="220">
+                                    <p class="health-phone-caption">Every import method enriches sessions with health data</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -794,5 +967,6 @@
         </div>
     </footer>
 
+    <script src="script.js?v=1"></script>
 </body>
 </html>

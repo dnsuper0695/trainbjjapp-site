@@ -2045,6 +2045,307 @@ details.faq-item > summary::marker {
     margin-bottom: 24px;
 }
 
+/* === BJJ Visual Identity — Gi-Weave Texture === */
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.03;
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.04) 2px,
+            rgba(255, 255, 255, 0.04) 4px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        );
+}
+
+.nav, .hero, .section,
+.ai-section, .live-section, .tech-section,
+.stat-section, .social-section, .health-section,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* === Scroll Progress Bar === */
+
+.scroll-progress {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent), #8b5cf6, #dc2626);
+    z-index: 101;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+/* === Accordion System === */
+
+/* Section accent colors */
+.ai-section { --section-accent: var(--color-accent); }
+.live-section { --section-accent: #dc2626; }
+.tech-section { --section-accent: #2E73AE; }
+.stat-section { --section-accent: #B16F42; }
+.social-section { --section-accent: #93949D; }
+.health-section { --section-accent: #2E73AE; }
+
+/* Accordion trigger button */
+.accordion-trigger {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 20px 24px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.3s, box-shadow 0.3s;
+    text-align: left;
+    font-family: var(--font-stack);
+    margin-top: 12px;
+    color: var(--color-text);
+}
+
+.accordion-trigger:hover {
+    background-color: var(--color-bg-card-hover);
+    border-color: var(--section-accent, var(--color-accent));
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.08);
+}
+
+.accordion-trigger[aria-expanded="true"] {
+    border-color: var(--section-accent, var(--color-accent));
+    background-color: var(--color-bg-card-hover);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+}
+
+/* Accordion number */
+.accordion-trigger .accordion-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    flex-shrink: 0;
+    color: var(--section-accent, var(--color-accent));
+}
+
+/* Accordion title */
+.accordion-trigger .accordion-title {
+    flex: 1;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Chevron icon */
+.accordion-chevron {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-muted);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s;
+    flex-shrink: 0;
+}
+
+.accordion-trigger:hover .accordion-chevron {
+    color: var(--section-accent, var(--color-accent));
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-chevron {
+    transform: rotate(180deg);
+    color: var(--section-accent, var(--color-accent));
+}
+
+/* Accordion panel — CSS Grid 0fr/1fr animation */
+.accordion-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.accordion-item[data-expanded="true"] .accordion-panel {
+    grid-template-rows: 1fr;
+}
+
+.accordion-panel-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Expanded panel border connects to trigger */
+.accordion-item[data-expanded="true"] .accordion-panel-inner {
+    border-left: 1px solid var(--section-accent, var(--color-accent));
+    border-right: 1px solid var(--section-accent, var(--color-accent));
+    border-bottom: 1px solid var(--section-accent, var(--color-accent));
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    padding: 40px 24px;
+    background: rgba(20, 20, 40, 0.2);
+}
+
+/* Features inside accordion panels — remove bottom margin */
+.accordion-panel-inner .ai-feature,
+.accordion-panel-inner .live-feature,
+.accordion-panel-inner .tech-feature,
+.accordion-panel-inner .stat-feature,
+.accordion-panel-inner .social-feature,
+.accordion-panel-inner .health-feature {
+    margin-bottom: 0;
+}
+
+/* First feature reduced margin when followed by accordion items */
+.accordion-section > .ai-feature:first-child,
+.accordion-section > .live-feature:first-child,
+.accordion-section > .tech-feature:first-child,
+.accordion-section > .stat-feature:first-child,
+.accordion-section > .social-feature:first-child,
+.accordion-section > .health-feature:first-child {
+    margin-bottom: 24px;
+}
+
+/* === Enhanced Section Header Typography === */
+
+.ai-header .section-title,
+.live-header .section-title,
+.tech-header .section-title,
+.stat-header .section-title,
+.social-header .section-title,
+.health-header .section-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.ai-header .section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.live-header .section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #fca5a5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tech-header .section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #7EC8E3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-header .section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #D4A574 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.social-header .section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #C8C9CE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.health-header .section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #7EC8E3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* === Screenshot Showcase Tilt Effect === */
+
+.screenshot-card {
+    perspective: 800px;
+}
+
+.screenshot-card:hover img {
+    transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 30px var(--color-accent-glow);
+}
+
+/* === Scroll-Triggered Fade-in Animations === */
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for feature cards */
+.features-grid .feature-card.fade-in-section:nth-child(1) { transition-delay: 0ms; }
+.features-grid .feature-card.fade-in-section:nth-child(2) { transition-delay: 80ms; }
+.features-grid .feature-card.fade-in-section:nth-child(3) { transition-delay: 160ms; }
+.features-grid .feature-card.fade-in-section:nth-child(4) { transition-delay: 240ms; }
+.features-grid .feature-card.fade-in-section:nth-child(5) { transition-delay: 320ms; }
+.features-grid .feature-card.fade-in-section:nth-child(6) { transition-delay: 400ms; }
+
+/* Staggered delays for screenshot cards */
+.screenshot-grid .screenshot-card.fade-in-section:nth-child(1) { transition-delay: 0ms; }
+.screenshot-grid .screenshot-card.fade-in-section:nth-child(2) { transition-delay: 100ms; }
+.screenshot-grid .screenshot-card.fade-in-section:nth-child(3) { transition-delay: 200ms; }
+.screenshot-grid .screenshot-card.fade-in-section:nth-child(4) { transition-delay: 300ms; }
+.screenshot-grid .screenshot-card.fade-in-section:nth-child(5) { transition-delay: 400ms; }
+.screenshot-grid .screenshot-card.fade-in-section:nth-child(6) { transition-delay: 500ms; }
+
+/* === Reduced Motion === */
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .accordion-panel {
+        transition: none;
+    }
+
+    .accordion-chevron {
+        transition: none;
+    }
+
+    .scroll-progress {
+        transition: none;
+    }
+
+    .screenshot-card:hover img {
+        transform: translateY(-4px);
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
@@ -2305,6 +2606,29 @@ details.faq-item > summary::marker {
 
     .health-feature-screenshots {
         max-width: 240px;
+    }
+
+    /* Accordion — tablet */
+    .accordion-trigger {
+        padding: 16px 20px;
+    }
+
+    .accordion-trigger .accordion-title {
+        font-size: 1.05rem;
+    }
+
+    .accordion-item[data-expanded="true"] .accordion-panel-inner {
+        padding: 24px 16px;
+    }
+
+    /* Enhanced typography — tablet */
+    .ai-header .section-title,
+    .live-header .section-title,
+    .tech-header .section-title,
+    .stat-header .section-title,
+    .social-header .section-title,
+    .health-header .section-title {
+        font-size: 2rem;
     }
 }
 
@@ -2567,5 +2891,29 @@ details.faq-item > summary::marker {
 
     .health-phone {
         max-width: 200px;
+    }
+
+    /* Accordion — mobile */
+    .accordion-trigger {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .accordion-trigger .accordion-title {
+        font-size: 0.95rem;
+    }
+
+    .accordion-item[data-expanded="true"] .accordion-panel-inner {
+        padding: 20px 12px;
+    }
+
+    /* Enhanced typography — mobile */
+    .ai-header .section-title,
+    .live-header .section-title,
+    .tech-header .section-title,
+    .stat-header .section-title,
+    .social-header .section-title,
+    .health-header .section-title {
+        font-size: 1.6rem;
     }
 }

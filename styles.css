@@ -1706,21 +1706,45 @@ img {
     margin: 0 auto;
 }
 
+/* Floating animation for Social phones */
+@keyframes social-phone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
 .social-phone img {
     width: 100%;
     max-width: 220px;
     height: auto;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
+    border: 3px solid rgba(147, 148, 157, 0.4);
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(147, 148, 157, 0.3), rgba(200, 201, 206, 0.15), rgba(147, 148, 157, 0.3));
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(147, 148, 157, 0.25),
+        0 0 40px rgba(147, 148, 157, 0.1);
+    transition: box-shadow 0.3s, border-color 0.3s;
+    animation: social-phone-float 4s ease-in-out infinite;
+}
+
+/* Stagger the 3 Social accordion phones */
+.social-section .accordion-item:nth-child(1) .social-phone img {
+    animation-delay: -1s;
+}
+.social-section .accordion-item:nth-child(2) .social-phone img {
+    animation-delay: -2s;
+}
+.social-section .accordion-item:nth-child(3) .social-phone img {
+    animation-delay: -3s;
 }
 
 .social-phone img:hover {
-    transform: translateY(-4px);
+    border-color: rgba(147, 148, 157, 0.6);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(147, 148, 157, 0.30);
+        0 0 30px rgba(147, 148, 157, 0.4),
+        0 0 60px rgba(147, 148, 157, 0.15);
 }
 
 .social-phone-caption {
@@ -2629,7 +2653,8 @@ footer {
     .ai-phone-small img,
     .live-phone img,
     .tech-phone img,
-    .stat-phone img {
+    .stat-phone img,
+    .social-phone img {
         animation: none;
     }
 }

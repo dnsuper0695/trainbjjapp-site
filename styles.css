@@ -1072,17 +1072,29 @@ img {
     width: 100%;
     max-width: 170px;
     height: auto;
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 16px;
+    border: 3px solid rgba(99, 102, 241, 0.4);
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.3));
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.3),
+        0 0 16px rgba(99, 102, 241, 0.25),
+        0 0 32px rgba(99, 102, 241, 0.1);
+    transition: box-shadow 0.3s, border-color 0.3s;
+    animation: ai-phone-float 4s ease-in-out infinite;
 }
 
+/* Stagger scanner grid phones */
+.ai-phone-small:nth-child(2) img { animation-delay: -1s; }
+.ai-phone-small:nth-child(3) img { animation-delay: -2s; }
+.ai-phone-small:nth-child(4) img { animation-delay: -3s; }
+
 .ai-phone-small img:hover {
-    transform: translateY(-3px);
+    border-color: rgba(99, 102, 241, 0.6);
     box-shadow:
         0 12px 36px rgba(0, 0, 0, 0.4),
-        0 0 16px var(--color-accent-glow);
+        0 0 24px rgba(99, 102, 241, 0.4),
+        0 0 48px rgba(99, 102, 241, 0.15);
 }
 
 .ai-phone-small .ai-phone-caption {
@@ -2541,7 +2553,8 @@ footer {
         transform: translateY(-4px);
     }
 
-    .ai-phone img {
+    .ai-phone img,
+    .ai-phone-small img {
         animation: none;
     }
 }

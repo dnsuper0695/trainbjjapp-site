@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=14`, `script.js?v=1`
+**Current version**: `styles.css?v=15`, `script.js?v=1`
 
 **How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
@@ -290,7 +290,8 @@ Original screenshots are stored in `~/Documents/Developer/Screenshots/Website Sc
 - `LiveSession/` — Processed versions with bezels and captions added
 - `TechniqueLibrary/Original Screenshots/` — Raw simulator screenshots for Technique Library section (01.png through 04.png). Clean simulator captures without bezels or captions.
 - `TechniqueLibrary/` — Processed versions with bezels and captions added
-- `AdvancedAnalytics/` — Advanced Analytics screenshots (`01.png` through `04.png`)
+- `AdvancedAnalytics/OriginalScreenshots/` — Raw simulator screenshots for Advanced Analytics section (01.png through 04.png). Clean simulator captures without bezels or captions.
+- `AdvancedAnalytics/` — Processed versions with bezels and captions added
 - `social_stackup/` — Social Feed & Stack Up screenshots (`01.png` through `04.png`)
 - `HealthMetrics/` — Health Metrics & Data Import screenshots (`01.png` through `04.png`)
 
@@ -298,13 +299,15 @@ Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-sessi
 
 ### Screenshot Processing
 
-**Other sections** (18 screenshots): All PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
+**Other sections** (14 screenshots): All PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
 
 **AI section** (7 screenshots): Uses raw simulator screenshots from `AI/OriginalScreenshots/` with CSS-based phone case effect (indigo gradient border + padding + floating animation). No bezel or dynamic island processing needed.
 
 **Live Session section** (4 screenshots): Uses raw simulator screenshots from `LiveSession/OriginalScreenshots/` with CSS-based phone case effect (red gradient border + padding + floating animation). No bezel or dynamic island processing needed.
 
 **Technique Library section** (4 screenshots): Uses raw simulator screenshots from `TechniqueLibrary/Original Screenshots/` with CSS-based phone case effect (blue belt gradient border + padding + floating animation). No bezel or dynamic island processing needed.
+
+**Advanced Analytics section** (4 screenshots): Uses raw simulator screenshots from `AdvancedAnalytics/OriginalScreenshots/` with CSS-based phone case effect (brown belt gradient border + padding + floating animation). No bezel or dynamic island processing needed.
 
 ### AI Screenshot Animation
 
@@ -331,6 +334,15 @@ All Technique Library phone screenshots (`.tech-phone img`) have:
 - **Staggered timing**: Accordion phones staggered by -1s, -2s, -3s via `.tech-section .accordion-item:nth-child(N)`
 - **Phone case border**: 3px solid `rgba(46, 115, 174, 0.4)` with 3px padding and blue belt gradient background
 - **Glow shadow**: Layered blue belt `box-shadow` (persistent + enhanced on hover)
+- **Reduced motion**: Animation disabled via `prefers-reduced-motion`
+
+### Advanced Analytics Screenshot Animation
+
+All Advanced Analytics phone screenshots (`.stat-phone img`) have:
+- **Floating animation**: `@keyframes stat-phone-float` — 8px vertical bob, 4s cycle, `ease-in-out`
+- **Staggered timing**: Accordion phones staggered by -1s, -2s, -3s via `.stat-section .accordion-item:nth-child(N)`
+- **Phone case border**: 3px solid `rgba(177, 111, 66, 0.4)` with 3px padding and brown belt gradient background
+- **Glow shadow**: Layered brown belt `box-shadow` (persistent + enhanced on hover)
 - **Reduced motion**: Animation disabled via `prefers-reduced-motion`
 
 ## Contact Info

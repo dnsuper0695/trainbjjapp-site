@@ -1505,21 +1505,45 @@ img {
     margin: 0 auto;
 }
 
+/* Floating animation for Advanced Analytics phones */
+@keyframes stat-phone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
 .stat-phone img {
     width: 100%;
     max-width: 220px;
     height: auto;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
+    border: 3px solid rgba(177, 111, 66, 0.4);
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(177, 111, 66, 0.3), rgba(212, 165, 116, 0.15), rgba(177, 111, 66, 0.3));
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(177, 111, 66, 0.25),
+        0 0 40px rgba(177, 111, 66, 0.1);
+    transition: box-shadow 0.3s, border-color 0.3s;
+    animation: stat-phone-float 4s ease-in-out infinite;
+}
+
+/* Stagger the 4 Advanced Analytics phones */
+.stat-section .accordion-item:nth-child(1) .stat-phone img {
+    animation-delay: -1s;
+}
+.stat-section .accordion-item:nth-child(2) .stat-phone img {
+    animation-delay: -2s;
+}
+.stat-section .accordion-item:nth-child(3) .stat-phone img {
+    animation-delay: -3s;
 }
 
 .stat-phone img:hover {
-    transform: translateY(-4px);
+    border-color: rgba(177, 111, 66, 0.6);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(177, 111, 66, 0.30);
+        0 0 30px rgba(177, 111, 66, 0.4),
+        0 0 60px rgba(177, 111, 66, 0.15);
 }
 
 .stat-phone-caption {
@@ -2604,7 +2628,8 @@ footer {
     .ai-phone img,
     .ai-phone-small img,
     .live-phone img,
-    .tech-phone img {
+    .tech-phone img,
+    .stat-phone img {
         animation: none;
     }
 }

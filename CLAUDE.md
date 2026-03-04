@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=12`, `script.js?v=1`
+**Current version**: `styles.css?v=13`, `script.js?v=1`
 
 **How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
@@ -286,7 +286,8 @@ Two-column grid (`.hero-grid`: `1fr 1.4fr`) with left-aligned content and right 
 Original screenshots are stored in `~/Documents/Developer/Screenshots/Website Screenshots/`:
 - `AI/OriginalScreenshots/` — Raw simulator screenshots for AI section (AIChat1.png, AIChat2.png, Scan1-4.png, SessionAnalysis.png). These are the clean simulator captures without bezels or captions.
 - `AI/` — Processed versions with bezels and captions added
-- `LiveSession/` — Live Session screenshots (e.g. `01.png` through `04.png`)
+- `LiveSession/OriginalScreenshots/` — Raw simulator screenshots for Live Session section (01.png through 04.png). Clean simulator captures without bezels or captions.
+- `LiveSession/` — Processed versions with bezels and captions added
 - `TechniqueLibrary/` — Technique Library screenshots (`01.png` through `04.png`)
 - `AdvancedAnalytics/` — Advanced Analytics screenshots (`01.png` through `04.png`)
 - `social_stackup/` — Social Feed & Stack Up screenshots (`01.png` through `04.png`)
@@ -296,9 +297,11 @@ Copy to `images/` with site naming convention (e.g. `ai-scan-1.png`, `live-sessi
 
 ### Screenshot Processing
 
-**Non-AI sections** (26 screenshots): All PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
+**Other sections** (22 screenshots): All PNGs have had the iPhone Dynamic Island (black pill shape) removed via Python/Pillow image processing. The status bar area was filled with interpolated colors from surrounding pixels. If regenerating screenshots with bezels, the dynamic island should be removed before deploying.
 
 **AI section** (7 screenshots): Uses raw simulator screenshots from `AI/OriginalScreenshots/` with CSS-based phone case effect (indigo gradient border + padding + floating animation). No bezel or dynamic island processing needed.
+
+**Live Session section** (4 screenshots): Uses raw simulator screenshots from `LiveSession/OriginalScreenshots/` with CSS-based phone case effect (red gradient border + padding + floating animation). No bezel or dynamic island processing needed.
 
 ### AI Screenshot Animation
 
@@ -307,6 +310,15 @@ All AI section phone screenshots (`.ai-phone img`, `.ai-phone-small img`) have:
 - **Staggered timing**: Second coach phone offset by -2s; scanner grid phones staggered by -1s each
 - **Phone case border**: 3px solid `rgba(99, 102, 241, 0.4)` with 3px padding and indigo gradient background
 - **Glow shadow**: Layered indigo `box-shadow` (persistent + enhanced on hover)
+- **Reduced motion**: Animation disabled via `prefers-reduced-motion`
+
+### Live Session Screenshot Animation
+
+All Live Session phone screenshots (`.live-phone img`) have:
+- **Floating animation**: `@keyframes live-phone-float` — 8px vertical bob, 4s cycle, `ease-in-out`
+- **Staggered timing**: Accordion phones staggered by -1s, -2s, -3s via `.live-section .accordion-item:nth-child(N)`
+- **Phone case border**: 3px solid `rgba(220, 38, 38, 0.4)` with 3px padding and red gradient background
+- **Glow shadow**: Layered red `box-shadow` (persistent + enhanced on hover)
 - **Reduced motion**: Animation disabled via `prefers-reduced-motion`
 
 ## Contact Info

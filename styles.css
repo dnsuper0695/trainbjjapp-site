@@ -791,21 +791,45 @@ img {
     margin: 0 auto;
 }
 
+/* Floating animation for Live Session phones */
+@keyframes live-phone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
 .live-phone img {
     width: 100%;
     max-width: 220px;
     height: auto;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
+    border: 3px solid rgba(220, 38, 38, 0.4);
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.3));
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(220, 38, 38, 0.25),
+        0 0 40px rgba(220, 38, 38, 0.1);
+    transition: box-shadow 0.3s, border-color 0.3s;
+    animation: live-phone-float 4s ease-in-out infinite;
+}
+
+/* Stagger the 4 Live Session phones */
+.live-section .accordion-item:nth-child(1) .live-phone img {
+    animation-delay: -1s;
+}
+.live-section .accordion-item:nth-child(2) .live-phone img {
+    animation-delay: -2s;
+}
+.live-section .accordion-item:nth-child(3) .live-phone img {
+    animation-delay: -3s;
 }
 
 .live-phone img:hover {
-    transform: translateY(-4px);
+    border-color: rgba(220, 38, 38, 0.6);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(220, 38, 38, 0.30);
+        0 0 30px rgba(220, 38, 38, 0.4),
+        0 0 60px rgba(220, 38, 38, 0.15);
 }
 
 .live-phone-caption {
@@ -2554,7 +2578,8 @@ footer {
     }
 
     .ai-phone img,
-    .ai-phone-small img {
+    .ai-phone-small img,
+    .live-phone img {
         animation: none;
     }
 }

@@ -300,6 +300,16 @@ img {
     fill: currentColor;
 }
 
+.app-store-btn-coming-soon {
+    cursor: default;
+    opacity: 0.85;
+}
+
+.app-store-btn-coming-soon:hover {
+    background: var(--color-accent);
+    transform: none;
+}
+
 /* Sections */
 .section {
     padding: 80px 0;

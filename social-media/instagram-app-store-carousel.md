@@ -26,7 +26,7 @@ Available now on the App Store — link in bio.
 .
 .
 
-#bjj #brazilianjiujitsu #jiujitsu #jiujitsulifestyle #bjjlifestyle #bjjtraining #bjjcommunity #bjjmotivation #bjjlife #bjjproblems #jiujitsulife #jiujitsumotivation #jiujitsutraining #bjjeveryday #submissiongrappling #nogi #nogijiujitsu #grappling #grapplingtraining #rollingday #openmat #guardpass #submission #bjjapp #trainbjj #bjjjournal #traininglog #bjjtech #bjjanalytics #martialarts #martialartstraining #selfimprovement #fitnessapp #iosapp #appstore #applewatch #healthkit #fittech #bjjcoach #jiujitsucoach #purplebelt #bluebelt #whitebelt #brownbelt #blackbelt #bjjdrills #bjjtechnique #bjjroll #bjjfamily #ossss #trainhard #mattime #guardretention #bjjgoals #jiujitsuislife
+#bjj #jiujitsu #bjjtraining #bjjcommunity #bjjlifestyle
 
 ---
 
@@ -34,5 +34,5 @@ Available now on the App Store — link in bio.
 
 - Each feature line maps to one carousel slide as viewers swipe
 - First line is the hook (only text visible before "...more")
-- Hashtag block separated by dots per Instagram best practice
-- Mix of high-volume (#bjj, #brazilianjiujitsu) and niche (#bjjapp, #trainbjj) hashtags
+- Instagram limits posts to 5 hashtags (as of 2026)
+- Hashtag strategy: 2 high-reach (#bjj, #jiujitsu) + 3 targeted engagement (#bjjtraining, #bjjcommunity, #bjjlifestyle)

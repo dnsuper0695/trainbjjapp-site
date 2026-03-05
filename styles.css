@@ -189,24 +189,18 @@ img {
 /* Hero */
 .hero {
     padding: 100px 0 40px;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 48px;
-    align-items: center;
+    text-align: center;
 }
 
 .hero-content {
-    text-align: left;
+    text-align: center;
 }
 
 .hero-icon {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin: 0 0 28px;
+    margin: 0 auto 28px;
     display: block;
     box-shadow:
         0 0 50px var(--color-accent-glow),
@@ -215,7 +209,7 @@ img {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: 14px;
@@ -226,14 +220,18 @@ img {
 }
 
 .hero .tagline {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-text-muted);
-    max-width: 520px;
-    margin: 0 0 28px;
+    max-width: 600px;
+    margin: 0 auto 32px;
     line-height: 1.7;
 }
 
 /* Hero Screenshots Grid */
+.hero-screenshots {
+    margin-top: 48px;
+}
+
 .hero-screenshots-label {
     text-align: center;
     font-size: 0.75rem;
@@ -241,13 +239,13 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .hero-screenshot-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
 }
 
 .hero-screenshot-grid img {
@@ -2701,33 +2699,25 @@ footer {
         padding: 100px 0 32px;
     }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-    }
-
-    .hero-content {
-        text-align: center;
-    }
-
     .hero-content .hero-icon {
         width: 130px;
         height: 130px;
-        margin: 0 auto 20px;
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 
     .hero .tagline {
         font-size: 1.05rem;
-        margin: 0 auto 28px;
-        max-width: 520px;
+    }
+
+    .hero-screenshots {
+        margin-top: 36px;
     }
 
     .hero-screenshot-grid {
+        grid-template-columns: repeat(3, 1fr);
         gap: 8px;
     }
 
@@ -3001,16 +2991,21 @@ footer {
         padding: 88px 0 24px;
     }
 
-    .hero-grid {
-        gap: 24px;
+    .hero-content .hero-icon {
+        width: 110px;
+        height: 110px;
     }
 
     .hero h1 {
-        font-size: 1.85rem;
+        font-size: 2rem;
     }
 
     .hero .tagline {
         font-size: 0.95rem;
+    }
+
+    .hero-screenshots {
+        margin-top: 28px;
     }
 
     .hero-screenshot-grid {

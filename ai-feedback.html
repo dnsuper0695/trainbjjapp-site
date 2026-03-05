@@ -7,9 +7,12 @@
     <meta name="description" content="Help improve the AI features in Train BJJ. Send feedback on the AI Coach, Post-Session Insights, and Notebook Scanner.">
     <link rel="icon" type="image/png" href="images/icon.png">
     <link rel="apple-touch-icon" href="images/icon.png">
-    <link rel="stylesheet" href="styles.css?v=21">
+    <link rel="stylesheet" href="styles.css?v=22">
 </head>
 <body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -27,22 +30,21 @@
     </nav>
 
     <!-- Page Header -->
-    <div class="page-header">
+    <div class="ai-fb-header">
         <div class="container">
+            <span class="ai-fb-badge">Powered by AI</span>
             <h1>Help Train Our AI</h1>
-            <p class="subtitle">
-                Train BJJ includes three AI-powered features — the AI Training Coach, Post-Session Insights, and Notebook Scanner.
+            <p class="ai-fb-subtitle">
+                Train BJJ includes three AI-powered features &mdash; the AI Training Coach, Post-Session Insights, and Notebook Scanner.
                 Your feedback directly improves the quality of coaching advice for everyone. Every correction you send makes the AI smarter.
             </p>
         </div>
     </div>
 
-    <!-- Content -->
-    <div class="container">
-
-        <!-- How It Works -->
-        <div class="content-section">
-            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 32px;">How It Works</h2>
+    <!-- How It Works -->
+    <section class="ai-fb-section fade-in-section">
+        <div class="container">
+            <h2 class="ai-fb-section-title">How It Works</h2>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
@@ -61,11 +63,13 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- What We're Looking For -->
-        <div class="content-section">
-            <h2 style="text-align: center; font-size: 1.5rem;">What We're Looking For</h2>
-            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 24px;">These are the most common types of AI errors we want to fix.</p>
+    <!-- What We're Looking For -->
+    <section class="ai-fb-section fade-in-section">
+        <div class="container">
+            <h2 class="ai-fb-section-title">What We're Looking For</h2>
+            <p class="ai-fb-section-subtitle">These are the most common types of AI errors we want to fix.</p>
             <div class="category-grid">
                 <div class="category-card">
                     <div class="category-icon">&#8693;</div>
@@ -78,7 +82,7 @@
                     <div class="category-icon">&#128683;</div>
                     <div>
                         <h3>Position Logic Errors</h3>
-                        <p>The AI suggested something impossible for the position — like "work on sweeps from top" or "pass guard from bottom."</p>
+                        <p>The AI suggested something impossible for the position &mdash; like "work on sweeps from top" or "pass guard from bottom."</p>
                     </div>
                 </div>
                 <div class="category-card">
@@ -104,11 +108,13 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Email Template -->
-        <div class="content-section">
-            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 8px;">Feedback Template</h2>
-            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 32px;">Copy this template, fill it out, and email it to us. Include as much or as little detail as you'd like.</p>
+    <!-- Email Template -->
+    <section class="ai-fb-section fade-in-section">
+        <div class="container">
+            <h2 class="ai-fb-section-title">Feedback Template</h2>
+            <p class="ai-fb-section-subtitle">Copy this template, fill it out, and email it to us. Include as much or as little detail as you'd like.</p>
 
             <div class="template-box">
                 <button class="copy-btn" onclick="copyTemplate()">Copy Template</button>
@@ -147,16 +153,17 @@ ANYTHING ELSE?
 (any other context that might help us fix this)</pre>
             </div>
         </div>
+    </section>
 
-        <!-- CTA -->
-        <div class="cta-section">
+    <!-- CTA -->
+    <section class="ai-fb-cta fade-in-section">
+        <div class="container">
             <p>Ready to help? Send your feedback and we'll use it to make the AI better for everyone.</p>
             <a href="mailto:aifeedback@trainbjjapp.com?subject=AI%20Feedback%20%E2%80%94%20" class="send-feedback-btn">
                 Send Feedback to aifeedback@trainbjjapp.com
             </a>
         </div>
-
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -171,6 +178,7 @@ ANYTHING ELSE?
         </div>
     </footer>
 
+    <script src="script.js?v=1"></script>
     <script>
     function copyTemplate() {
         const text = document.getElementById('template-text').textContent;

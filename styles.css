@@ -2015,39 +2015,124 @@ img {
 }
 
 /* AI Feedback Page */
+
+.ai-fb-header {
+    padding: 120px 0 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-fb-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99, 102, 241, 0.15), transparent),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08), transparent);
+    pointer-events: none;
+}
+
+.ai-fb-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.ai-fb-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #ffffff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ai-fb-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.ai-fb-section {
+    padding: 48px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-fb-section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.ai-fb-section-subtitle {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+}
+
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    margin-bottom: 60px;
+    margin-top: 32px;
 }
 
 .step-card {
     text-align: center;
-    padding: 32px 20px;
+    padding: 36px 24px;
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(99, 102, 241, 0.2);
     border-radius: var(--radius);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(99, 102, 241, 0.15);
 }
 
 .step-number {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent), #8b5cf6);
     color: #fff;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 16px;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
 }
 
 .step-card h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    color: var(--color-text);
 }
 
 .step-card p {
@@ -2060,46 +2145,60 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px;
-    margin-top: 24px;
-    margin-bottom: 60px;
 }
 
 .category-card {
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(99, 102, 241, 0.15);
     border-radius: var(--radius);
     padding: 24px;
     display: flex;
     gap: 16px;
     align-items: flex-start;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.2),
+        0 0 12px rgba(99, 102, 241, 0.1);
 }
 
 .category-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
-    width: 40px;
-    text-align: center;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.12);
+    border-radius: 10px;
 }
 
 .category-card h3 {
     font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    color: var(--color-text);
 }
 
 .category-card p {
     font-size: 0.85rem;
     color: var(--color-text-muted);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .template-box {
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(99, 102, 241, 0.2);
     border-radius: var(--radius);
     padding: 32px;
     position: relative;
-    margin-bottom: 32px;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .template-box pre {
@@ -2115,54 +2214,56 @@ img {
     position: absolute;
     top: 16px;
     right: 16px;
-    padding: 8px 16px;
-    background: var(--color-accent);
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--color-accent), #8b5cf6);
     color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     font-family: var(--font-stack);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 .copy-btn:hover {
-    background: var(--color-accent-hover);
     transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
 }
 
 .copy-btn.copied {
     background: var(--color-success);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.ai-fb-cta {
+    text-align: center;
+    padding: 48px 0 80px;
+}
+
+.ai-fb-cta p {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: 28px;
 }
 
 .send-feedback-btn {
     display: inline-block;
     padding: 16px 40px;
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent), #8b5cf6);
     color: #fff;
     border-radius: 12px;
     font-weight: 700;
     font-size: 1.05rem;
-    transition: background-color 0.2s, transform 0.2s;
-    box-shadow: 0 4px 20px var(--color-accent-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(99, 102, 241, 0.35);
 }
 
 .send-feedback-btn:hover {
-    background: var(--color-accent-hover);
     color: #fff;
-    transform: translateY(-1px);
-}
-
-.cta-section {
-    text-align: center;
-    padding: 40px 0 80px;
-}
-
-.cta-section p {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 24px;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.5);
 }
 
 /* Active nav link */
@@ -2382,6 +2483,7 @@ body::after {
 .screenshot-showcase,
 .ai-section, .live-section, .tech-section,
 .stat-section, .social-section, .health-section,
+.ai-fb-header, .ai-fb-section, .ai-fb-cta,
 footer {
     position: relative;
     z-index: 1;
@@ -2749,6 +2851,14 @@ footer {
         font-size: 1.75rem;
     }
 
+    .ai-fb-header {
+        padding: 100px 0 32px;
+    }
+
+    .ai-fb-header h1 {
+        font-size: 1.75rem;
+    }
+
     .faq-q {
         padding-left: 48px;
     }
@@ -3032,6 +3142,26 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .ai-fb-header {
+        padding: 88px 0 24px;
+    }
+
+    .ai-fb-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .ai-fb-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .ai-fb-section {
+        padding: 32px 0;
+    }
+
+    .ai-fb-section-title {
+        font-size: 1.25rem;
+    }
+
     .template-box {
         padding: 20px;
     }
@@ -3045,6 +3175,14 @@ footer {
         display: block;
         width: 100%;
         margin-bottom: 16px;
+    }
+
+    .send-feedback-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 16px 24px;
+        font-size: 0.95rem;
     }
 
     .faq-section-header {

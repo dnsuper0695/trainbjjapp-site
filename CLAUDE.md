@@ -28,7 +28,7 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 ## Page Sections (index.html, top to bottom)
 
 1. **Nav** — Fixed at top (`position: fixed; z-index: 100`), glass background, scroll progress bar below. Links: FAQ, Features [dropdown: AI Features, Live Session, Technique Library, Advanced Analytics, Social & Stack Up, Health & Import], AI Feedback, Support
-2. **Hero** — Two-column grid: left (app icon, tagline, App Store button), right ("As Seen in the App Store" 3x2 screenshot grid)
+2. **Hero** — Two-column grid: left (brand logo 150px, tagline, App Store button), right ("As Seen in the App Store" 3x2 screenshot grid)
 3. **Features** ("Everything You Need to Level Up") — 6 belt-themed feature cards (all clickable: AI → #ai, Live → #live-session, Techniques → #techniques, Analytics → #analytics, Social → #social, Health → #health)
 4. **AI Features** (#ai) — Indigo/purple themed section. Feature 01 (Coach) always expanded; Features 02-03 (Scanner, Insights) in accordion
 5. **Live Session** (#live-session) — Red themed section. Feature 01 (Timer) always expanded; Features 02-04 (Controls, Save, Lock Screen) in accordion
@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=19`, `script.js?v=1`
+**Current version**: `styles.css?v=20`, `script.js?v=1`
 
 **How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
@@ -204,7 +204,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 
 ## Nav Bar
 
-- **Brand logo**: `images/logo.png` (circular metallic badge, 36x36, transparent background). Used in nav across all 5 pages. Hero section still uses `images/icon.png` (app icon).
+- **Brand logo**: `images/logo.png` (circular metallic badge, transparent background). Used in nav (36x36) across all 5 pages and hero section (150px with indigo glow).
 - **Fixed positioning**: `position: fixed; top: 0; z-index: 100` with glass background (`rgba(10, 10, 20, 0.88)` + `backdrop-filter: blur(16px)`)
 - **Height**: 64px (set on `.nav .container`)
 - **Bottom border**: `1px solid var(--color-border)` — scroll progress bar runs along this line
@@ -271,7 +271,7 @@ All transitions and animations are disabled. Fade-in elements are immediately vi
 ### Hero Layout
 
 Two-column grid (`.hero-grid`: `1fr 1.4fr`) with left-aligned content and right screenshot showcase:
-- **Left** (`.hero-content`): App icon (100px, rounded 24px with glow), gradient `h1`, tagline, App Store button
+- **Left** (`.hero-content`): Brand logo (150px circular with indigo glow, 130px at tablet), gradient `h1`, tagline, App Store button
 - **Right** (`.hero-screenshots`): "As Seen in the App Store" label + 3x2 screenshot grid (`.hero-screenshot-grid`) + italic subtitle
 - At 768px: collapses to single column, content centers
 - Hero `h1` uses gradient text: `linear-gradient(135deg, #ffffff 0%, #c4c4d4 50%, #8888a8 100%)`

@@ -203,14 +203,14 @@ img {
 }
 
 .hero-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 24px;
-    margin: 0 0 24px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 0 28px;
     display: block;
     box-shadow:
-        0 0 40px var(--color-accent-glow),
-        0 0 80px rgba(99, 102, 241, 0.15),
+        0 0 50px var(--color-accent-glow),
+        0 0 100px rgba(99, 102, 241, 0.2),
         0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
@@ -2712,6 +2712,8 @@ footer {
     }
 
     .hero-content .hero-icon {
+        width: 130px;
+        height: 130px;
         margin: 0 auto 20px;
     }
 

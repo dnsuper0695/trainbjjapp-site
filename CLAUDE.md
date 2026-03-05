@@ -367,6 +367,37 @@ All Health section phone screenshots (`.health-phone img`) have:
 - **Glow shadow**: Layered blue belt `box-shadow` (persistent + enhanced on hover)
 - **Reduced motion**: Animation disabled via `prefers-reduced-motion`
 
+## Writing Style & Naming Conventions
+
+### Product Names (always capitalized)
+
+| Name | Usage |
+|------|-------|
+| **AI Training Coach** | Formal/first mention, headings |
+| **AI Coach** | Shorthand in body text (after formal name introduced) |
+| **Post-Session Insights** | Always plural, always with "Post-" prefix |
+| **Notebook Scanner** | Always capitalized |
+| **Stack Up** | Always capitalized (product feature name) |
+| **Dynamic Island** | Always capitalized (Apple product name) |
+| **Live Activity** | Always capitalized (Apple feature name) |
+| **Train BJJ** | App name, always capitalized |
+| **Apple Health** / **HealthKit** | Always capitalized (Apple product names) |
+
+### Terminology
+
+| Term | Standard | Avoid |
+|------|----------|-------|
+| AI descriptor | "AI-powered" | "AI-assisted" |
+| Navigation paths | "Profile > Side Menu > ..." | "Profile > Settings > ..." |
+
+### Punctuation & Style Rules
+
+- **Bullet points**: No periods at end of list items
+- **Oxford comma**: Always use (e.g., "submissions, sweeps, and takedowns")
+- **Em dashes** (`&mdash;`): Use for parenthetical asides and contrast (e.g., "not hours later from memory")
+- **Tense**: Present tense / imperative throughout
+- **Tone**: Professional-casual (avoid overly colloquial phrases)
+
 ## Contact Info
 
 - Support: support@trainbjjapp.com

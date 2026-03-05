@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=18`, `script.js?v=1`
+**Current version**: `styles.css?v=19`, `script.js?v=1`
 
 **How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
@@ -204,6 +204,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 
 ## Nav Bar
 
+- **Brand logo**: `images/logo.png` (circular metallic badge, 36x36, transparent background). Used in nav across all 5 pages. Hero section still uses `images/icon.png` (app icon).
 - **Fixed positioning**: `position: fixed; top: 0; z-index: 100` with glass background (`rgba(10, 10, 20, 0.88)` + `backdrop-filter: blur(16px)`)
 - **Height**: 64px (set on `.nav .container`)
 - **Bottom border**: `1px solid var(--color-border)` — scroll progress bar runs along this line

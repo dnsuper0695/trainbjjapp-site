@@ -107,18 +107,27 @@
 
         dropdownLinks.forEach(function (link) {
             link.addEventListener('click', function () {
-                var menu = link.closest('.nav-dropdown-menu');
-                if (!menu) return;
+                var dropdown = link.closest('.nav-dropdown');
+                if (!dropdown) return;
 
-                // Temporarily hide the dropdown so it doesn't stay open after navigation
-                menu.style.opacity = '0';
-                menu.style.visibility = 'hidden';
+                // Add class that overrides :hover with !important
+                // On mobile, tap creates a sticky :hover state that inline styles can't beat
+                dropdown.classList.add('dropdown-closed');
 
-                // Re-enable CSS hover after mouse has time to leave
+                // Remove the class once user scrolls or touches elsewhere
+                function reopen() {
+                    dropdown.classList.remove('dropdown-closed');
+                    window.removeEventListener('scroll', reopen);
+                    document.removeEventListener('touchstart', reopen);
+                }
+
+                window.addEventListener('scroll', reopen, { once: true });
+                document.addEventListener('touchstart', reopen, { once: true });
+
+                // Fallback: remove after 1s for desktop (mouse leaves hover zone)
                 setTimeout(function () {
-                    menu.style.opacity = '';
-                    menu.style.visibility = '';
-                }, 300);
+                    dropdown.classList.remove('dropdown-closed');
+                }, 1000);
             });
         });
     }

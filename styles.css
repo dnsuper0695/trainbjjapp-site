@@ -158,6 +158,12 @@ img {
     visibility: visible;
 }
 
+/* JS adds this class after a dropdown link is clicked to override sticky :hover on mobile */
+.nav-dropdown.dropdown-closed .nav-dropdown-menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
 /* Invisible bridge so hover doesn't break when moving to dropdown */
 .nav-dropdown-menu::before {
     content: '';

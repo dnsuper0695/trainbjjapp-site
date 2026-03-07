@@ -99,6 +99,31 @@
     }
 
     // ================================
+    // 4. DROPDOWN CLOSE ON CLICK
+    // ================================
+
+    function initDropdownClose() {
+        var dropdownLinks = document.querySelectorAll('.nav-dropdown-menu a');
+
+        dropdownLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                var menu = link.closest('.nav-dropdown-menu');
+                if (!menu) return;
+
+                // Temporarily hide the dropdown so it doesn't stay open after navigation
+                menu.style.opacity = '0';
+                menu.style.visibility = 'hidden';
+
+                // Re-enable CSS hover after mouse has time to leave
+                setTimeout(function () {
+                    menu.style.opacity = '';
+                    menu.style.visibility = '';
+                }, 300);
+            });
+        });
+    }
+
+    // ================================
     // INIT
     // ================================
 
@@ -107,11 +132,13 @@
             initAccordions();
             initScrollAnimations();
             initScrollProgress();
+            initDropdownClose();
         });
     } else {
         initAccordions();
         initScrollAnimations();
         initScrollProgress();
+        initDropdownClose();
     }
 
 })();

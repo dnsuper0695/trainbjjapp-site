@@ -110,24 +110,22 @@
                 var dropdown = link.closest('.nav-dropdown');
                 if (!dropdown) return;
 
-                // Add class that overrides :hover with !important
-                // On mobile, tap creates a sticky :hover state that inline styles can't beat
                 dropdown.classList.add('dropdown-closed');
 
-                // Remove the class once user scrolls or touches elsewhere
-                function reopen() {
+                // Desktop: clear when mouse leaves the dropdown
+                function onMouseLeave() {
                     dropdown.classList.remove('dropdown-closed');
-                    window.removeEventListener('scroll', reopen);
-                    document.removeEventListener('touchstart', reopen);
+                    dropdown.removeEventListener('mouseleave', onMouseLeave);
                 }
+                dropdown.addEventListener('mouseleave', onMouseLeave);
 
-                window.addEventListener('scroll', reopen, { once: true });
-                document.addEventListener('touchstart', reopen, { once: true });
-
-                // Fallback: remove after 1s for desktop (mouse leaves hover zone)
+                // Mobile: clear on next touch (delayed so we skip the current tap).
+                // By then the new touch also clears the sticky :hover state.
                 setTimeout(function () {
-                    dropdown.classList.remove('dropdown-closed');
-                }, 1000);
+                    document.addEventListener('touchstart', function () {
+                        dropdown.classList.remove('dropdown-closed');
+                    }, { once: true });
+                }, 300);
             });
         });
     }

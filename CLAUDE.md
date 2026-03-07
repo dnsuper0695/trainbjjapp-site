@@ -21,7 +21,7 @@ Static marketing website for Train BJJ (iOS app). Hosted on GitHub Pages at trai
 | `terms.html` | Terms of service |
 | `ai-feedback.html` | AI feedback/reporting page |
 | `styles.css` | All styles (single file) |
-| `script.js` | Accordion toggle, scroll animations, scroll progress bar |
+| `script.js` | Accordion toggle, scroll animations, scroll progress bar, dropdown close on click |
 | `CNAME` | GitHub Pages custom domain config |
 | `images/` | All screenshots and assets |
 
@@ -192,7 +192,7 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - `terms.html`
 - `ai-feedback.html`
 
-**Current version**: `styles.css?v=22`, `script.js?v=1`
+**Current version**: `styles.css?v=23`, `script.js?v=2`
 
 **How to bump CSS/JS**: Increment the number (e.g. `?v=12` → `?v=13`) in every `<link>` and `<script>` tag across all 5 HTML files.
 
@@ -212,9 +212,10 @@ Currently clickable: AI Training Coach → `#ai`, Live Session Tracking → `#li
 - Links use `white-space: nowrap` to prevent wrapping
 - At 480px: font shrinks to `0.72rem`, gap to `8px`
 - **Features dropdown**: `li.nav-dropdown` with nested `ul.nav-dropdown-menu` containing "AI Features", "Live Session", "Technique Library", "Advanced Analytics", "Social & Stack Up", and "Health & Import"
-- Dropdown is CSS-only (hover to reveal), with chevron arrow that flips on hover
+- Dropdown reveals on CSS `:hover`, with chevron arrow that flips on hover
 - Invisible `::before` bridge (8px) prevents hover gap between link and dropdown menu
 - Dropdown styled with `var(--color-bg-card)` background, `backdrop-filter: blur(16px)`, accent hover highlight
+- **JS-assisted close on click** (`initDropdownClose()` in `script.js`): When a user clicks a dropdown link, JS adds `.dropdown-closed` class to the `.nav-dropdown` element, which overrides the CSS `:hover` visibility with `opacity: 0 !important; visibility: hidden !important`. This is necessary because mobile browsers create a persistent ("sticky") `:hover` state on tap that doesn't clear until the user touches elsewhere. Desktop: class removed on `mouseleave`. Mobile: class removed on next `touchstart` (delayed 300ms to skip the current tap)
 
 ## Key Patterns
 
@@ -399,6 +400,49 @@ All Health section phone screenshots (`.health-phone img`) have:
 - **Em dashes** (`&mdash;`): Use for parenthetical asides and contrast (e.g., "not hours later from memory")
 - **Tense**: Present tense / imperative throughout
 - **Tone**: Professional-casual (avoid overly colloquial phrases)
+
+## Mobile vs Desktop Considerations
+
+This site is used on both desktop (mouse/keyboard) and mobile (touch). **All CSS and JS changes must be tested against both interaction models.** Key differences to keep in mind:
+
+### Touch vs Mouse Interaction
+
+| Behavior | Desktop (Mouse) | Mobile (Touch) |
+|----------|-----------------|----------------|
+| `:hover` state | Active while cursor is over element, clears on mouseout | **Sticky** — activates on tap, persists until user taps elsewhere |
+| `:active` state | Momentary on click | Momentary on tap |
+| Dropdown reveal | Hover to show, mouseout to hide | Tap to show, stays visible (sticky hover) |
+| Scroll events | Mouse wheel, scrollbar | Touch drag; **anchor navigation also fires scroll** |
+
+### Sticky Hover Problem (Mobile)
+
+Mobile browsers simulate `:hover` on tap for compatibility with desktop-designed sites. This creates problems for hover-reveal UI patterns:
+
+- **Dropdowns**: A CSS `:hover` dropdown will open on tap but won't close when the user taps a link inside it (the `:hover` state sticks to the parent). The fix uses JS to add a `.dropdown-closed` class with `!important` overrides, cleared on the next `touchstart` event.
+- **Cards/buttons with hover effects**: Hover glow/scale effects will persist on mobile after tapping. If this is disruptive, use `@media (hover: hover)` to limit hover effects to devices with a real pointer.
+
+### Responsive Breakpoints to Test
+
+| Breakpoint | Test Focus |
+|------------|------------|
+| `> 768px` (desktop) | Multi-column grids, hover interactions, dropdown mouse behavior |
+| `768px` (tablet) | Grid collapse (2→1 column), `direction: ltr` override on alternating layouts, centering of single-column elements (e.g. `margin: 0 auto`) |
+| `480px` (mobile) | Single column, font size reductions, tight spacing, sticky hover behavior, touch targets (min 44px) |
+
+### Testing Checklist for CSS/JS Changes
+
+When modifying interactive elements or layout:
+
+1. **Desktop**: Test hover states, click behavior, and mouse-based navigation
+2. **Mobile Safari** (or Chrome DevTools mobile emulation): Test tap behavior, verify no stuck hover states, check touch target sizes
+3. **Anchor links** (`#section`): Verify smooth scroll works and any related UI (dropdowns, tooltips) closes properly on both platforms
+4. **Responsive layout**: Resize browser or use DevTools to check all 3 breakpoints — elements should center properly when grids collapse to single column
+5. **Reduced motion**: Enable `prefers-reduced-motion` in DevTools and verify animations are suppressed
+
+### Reference Patterns
+
+- **Dropdown close on click**: See `initDropdownClose()` in `script.js` and `.dropdown-closed` rule in `styles.css` — uses separate strategies for desktop (`mouseleave`) and mobile (delayed `touchstart`)
+- **Mobile centering fix**: When a grid collapses to single column, elements with `max-width` need `margin: 0 auto` to center (e.g. `.health-feature-screenshots` at 768px breakpoint)
 
 ## Contact Info
 

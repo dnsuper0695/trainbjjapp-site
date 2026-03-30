@@ -277,41 +277,19 @@ img {
     font-style: italic;
 }
 
-.app-store-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 32px;
-    background: var(--color-accent);
-    color: #fff;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: background-color 0.2s, transform 0.2s;
-    box-shadow: 0 4px 20px var(--color-accent-glow);
+.app-store-badge-link {
+    display: inline-block;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
-.app-store-btn:hover {
-    background: var(--color-accent-hover);
-    color: #fff;
-    transform: translateY(-1px);
+.app-store-badge-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
-.app-store-btn svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor;
-}
-
-.app-store-btn-coming-soon {
-    cursor: default;
-    opacity: 0.85;
-}
-
-.app-store-btn-coming-soon:hover {
-    background: var(--color-accent);
-    transform: none;
+.app-store-badge {
+    height: 54px;
+    width: auto;
 }
 
 /* Sections */
